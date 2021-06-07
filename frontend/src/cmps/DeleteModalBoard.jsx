@@ -1,5 +1,5 @@
 
-export function DeleteModalBoard({ board, onRemove, onCloseModalDelete }) {
+export function DeleteModalBoard({ board, onRemove, onToggleModalOptions }) {
 
     return (
         < div className="modal-delete flex col space-between" >
@@ -8,7 +8,7 @@ export function DeleteModalBoard({ board, onRemove, onCloseModalDelete }) {
             </div>
             <div className="bottom flex align-center">
                 <button className="btn-delete" onClick={() => onRemove(board._id)}>Delete</button>
-                <button className="btn-go-back" onClick={onCloseModalDelete}>Go Back</button>
+                <button className="btn-go-back" onClick={() => onToggleModalOptions()}>Go Back</button>
             </div>
         </div >
     )

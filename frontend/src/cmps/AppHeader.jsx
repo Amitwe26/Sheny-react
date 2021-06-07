@@ -1,7 +1,7 @@
-import { Component } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { logout } from '../store/actions/userAction'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout, updateUser } from '../store/actions/userAction'
 import { Avatar } from '@material-ui/core';
 
 import {
@@ -16,104 +16,98 @@ import { NotificationModal } from './notification/NotificationModal';
 import logo from "../assets/styles/logo/logo.png";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import { socketService } from '../services/socketService';
+// import { storageService } from '../services/storageService';
 
+import React from 'react'
 
-class _AppHeader extends Component {
-    state = {
-        isNotificationModalShown: false,
-        notifications: [],
-        isNewNotification: false,
-        isHamburgerOpen: false
-    }
+export function AppHeader() {
+    const { loggedInUser } = useSelector(state => state.userReducer)
+    const [isNotificationModalShown, setIsNotificationModalShown] = useState(false)
+    const [notifications, setNotifications] = useState([])
+    const [isNewNotification, setIsNewNotification] = useState(false)
+    const [isHamburgerOpen, setIsHamburgerOpen] = useState(false)
+    const dispatch = useDispatch()
 
-    async componentDidMount() {
+    useEffect(() => {
         socketService.on('board add notification', (notification) => {
-            const copyNotifications = [...this.state.notifications, notification]
-            this.setState({ notifications: copyNotifications, isNewNotification: true })
+            const copyNotifications = [notification, ...loggedInUser.notifications]
+            console.log('copyNotification is:', copyNotifications);
+            setNotifications(copyNotifications)
+            setIsNewNotification(true)
+            const newLoggedInUser = { ...loggedInUser }
+            newLoggedInUser.notifications = copyNotifications
+            dispatch(updateUser(newLoggedInUser))
         })
+        setNotifications(loggedInUser?.notifications)
+        // console.log('loggedInUser is:', loggedInUser);
+        // const logdin = storageService.load('loggedInUser')
+        // console.log('sessionStorage.loggedInUser is:', logdin);
+        return () => {
+            console.log('im finish');
+            socketService.off('board add notification')
+
+        }
+    }, [])
+
+    useEffect(() => {
+        setNotifications(loggedInUser?.notifications)
+
+    }, [loggedInUser])
+    const toggleShowModal = () => {
+        setIsNotificationModalShown(!isNotificationModalShown)
+        setIsNewNotification(false)
     }
 
-    componentWillUnmount() {
-        socketService.off('board add notification')
+    const toggleHamburger = () => {
+        setIsHamburgerOpen(!isHamburgerOpen)
     }
 
+    return (
+        <div className="header-main flex">
+            <div className="tab-name">Hi,{loggedInUser?.fullname || 'Guest'}</div>
+            <div className="header-left-panel flex col">
+                <div className="header-left-logo">
+                    <Link to="/">
+                        <img src={logo} alt="Logo" />
+                    </Link>
+                </div>
+                <div className="header-left-top flex col">
+                    <Link className="header-item" to="/board" title="My Boards"><AppsOutlined /></Link>
+                    <span title="Notifications" className="notifications header-item" onClick={() => toggleShowModal()}>
+                        <NotificationsNone />
+                        {isNewNotification && <div className="new-notification"></div>}
 
-
-    toggleShowModal = () => {
-        this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown, isNewNotification: false })
-    }
-
-    toggleHamburger = () => {
-        var { isHamburgerOpen } = this.state
-        this.setState({ isHamburgerOpen: !isHamburgerOpen })
-    }
-
-
-    render() {
-        const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
-        const { logout, loggedInUser } = this.props
-        return (
-            <div className="header-main flex">
-                <div className="tab-name">Hi,{loggedInUser.fullname || 'Guest'}</div>
-                <div className="header-left-panel flex col">
-                    <div className="header-left-logo">
-                        <Link to="/">
-                            <img src={logo} alt="Logo" />
+                        {isNotificationModalShown &&
+                            <NotificationModal notifications={notifications} />}
+                    </span>
+                    {isNotificationModalShown && <div onClick={() => toggleShowModal()} className="screen"></div>}
+                </div>
+                <div
+                    className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>
+                    <span className="event-note header-item flex align-center"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
+                    <span className="person header-item flex align-center">
+                        <Link to="/profile" title="My profile">
+                            <Avatar
+                                className="avatar"
+                                alt={`${loggedInUser?.fullname || 'G'} `}
+                                src={loggedInUser?.imgUrl || 'G'}
+                            />
                         </Link>
-                    </div>
-                    <div className="header-left-top flex col">
-                        <Link className="header-item" to="/board" title="My Boards"><AppsOutlined /></Link>
-                        <span title="Notifications" className="notifications header-item" onClick={this.toggleShowModal}>
-                            <NotificationsNone />
-                            {isNewNotification && <div className="new-notification"></div>}
-
-                            {isNotificationModalShown &&
-                                <NotificationModal notifications={notifications} />}
-                        </span>
-                        {isNotificationModalShown && <div onClick={this.toggleShowModal} className="screen"></div>}
-                    </div>
-                    <div
-                        className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>
-                        <span className="event-note header-item flex align-center"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
-                        <span className="person header-item flex align-center">
-                            <Link to="/profile" title="My profile">
-                                <Avatar
-                                    className="avatar"
-                                    alt={`${loggedInUser.fullname || 'G'} `}
-                                    src={loggedInUser.imgUrl || 'G'}
-                                />
-                            </Link>
-                        </span>
-                        <span className="exit-to-app header-item flex align-center"><Link to="" onClick={logout} title="Logout"><ExitToAppOutlined /></Link></span>
-                    </div>
+                    </span>
+                    <span className="exit-to-app header-item flex align-center"><Link to="" onClick={dispatch(logout)} title="Logout"><ExitToAppOutlined /></Link></span>
                 </div>
-                <div className="header-right-panel flex col">
-                    <div className="header-right-top"></div>
-                    <div className="header-right-middle flex col align-center">
-                        <GitHub className="header-item" />
-                        <LinkedIn className="header-item" />
-                    </div>
-                    <div className="header-right-bottom"></div>
-                </div>
-                <button className="hamburger" onClick={this.toggleHamburger}><MenuOutlinedIcon className="hamburger" /></button>
-                {isHamburgerOpen &&
-                    <div className="dark-screen-nover" onClick={this.toggleHamburger}></div>}
             </div>
-        )
-    }
+            <div className="header-right-panel flex col">
+                <div className="header-right-top"></div>
+                <div className="header-right-middle flex col align-center">
+                    <GitHub className="header-item" />
+                    <LinkedIn className="header-item" />
+                </div>
+                <div className="header-right-bottom"></div>
+            </div>
+            <button className="hamburger" onClick={() => toggleHamburger()}><MenuOutlinedIcon className="hamburger" /></button>
+            {isHamburgerOpen &&
+                <div className="dark-screen-nover" onClick={() => toggleHamburger()}></div>}
+        </div>
+    )
 }
-const mapGlobalStateToProps = (state) => {
-    return {
-        loggedInUser: state.userReducer.loggedInUser
-    };
-};
-const mapDispatchToProps = {
-    logout,
-
-
-}
-
-export const AppHeader = connect(
-    mapGlobalStateToProps,
-    mapDispatchToProps
-)(_AppHeader);

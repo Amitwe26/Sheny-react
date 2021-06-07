@@ -1,7 +1,8 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
-import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
-import { updateUser, loginUser } from '../../store/actions/userAction'
+import React from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadBoard, removeBoard, updateBoard, updateBoards } from '../../store/actions/boardAction'
+// import { updateUser, loginUser } from '../../store/actions/userAction'
 
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
@@ -14,112 +15,150 @@ import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
 import { GroupFilter } from '../group/GroupFilter';
 
-export class _BoardDetails extends Component {
-    state = {
-        isFilterShow: false,
-        groupsForDisplay: null
-    }
+import { useHistory } from 'react-router';
+import { ActivitiesModal } from './ActivitiesModal';
+import { BoardSideNavModal } from './BoardSideNavModal';
+// import { ModalMsg } from '../ModalMsg';
 
-    componentDidMount() {
-        this.loadActiveBoard()
-        this.setUpListeners()
-        socketService.emit('chat topic', this.props.match.params.boardId)
-    }
+export function BoardDetails(props) {
+    const { activeBoard, boards } = useSelector(state => state.boardReducer)
+    const { loggedInUser } = useSelector(state => state.userReducer)
 
-    setUpListeners = () => {
+    const [isFilterShow, setIsFilterShow] = useState(false)
+    const [groupsForDisplay, setGroupsForDisplay] = useState(null)
+
+    const [activities, setActivities] = useState(null)
+    const [activeModal, setActiveModal] = useState(false)
+    const [isModalShown, setIsModalShown] = useState(false)
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+
+    const loadActiveBoard = () => {
+        const { boardId } = props.match.params
+        dispatch(loadBoard(boardId))
+    }
+    useEffect(() => {
+        loadActiveBoard()
+        setUpListeners()
+        socketService.emit('chat topic', props.match.params.boardId)
+        return () => {
+            socketService.off('update board')
+            socketService.off('update boards')
+        }
+    }, [])
+
+    useEffect(() => {
+        if (activeBoard?._id !== props.match.params.boardId) {
+            socketService.emit('chat topic', props.match.params.boardId)
+            loadActiveBoard()
+        }
+
+    }, [props])
+
+    useEffect(() => {
+        findActivities()
+    }, [activeBoard])
+
+    const setUpListeners = () => {
         socketService.on('update board', () => {
-            this.loadActiveBoard()
+            loadActiveBoard()
         })
         socketService.on('update boards', () => {
-            this.props.loadBoards()
-            this.loadActiveBoard()
+            dispatch(loadBoard())
+            loadActiveBoard()
         })
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
-            socketService.emit('chat topic', this.props.match.params.boardId)
-            this.loadActiveBoard()
+    const findActivities = () => {
+        const userTasks = []
+        activeBoard?.groups.forEach(group => {
+            let tasks = group.tasks.filter(task => task.members.find(member => member?._id === loggedInUser._id))
+            if (tasks.length) {
+                tasks = tasks.map(task => {
+                    task.groupName = group.name
+                    // task.boardName = board.name
+                    return task;
+                })
+                userTasks.push(...tasks)
+            }
+        })
+        setActivities(userTasks)
+    }
+
+    const togglemodalActivities = () => {
+        console.log(' activitiesis:', activities);
+        if (!activities.length) return
+        setActiveModal(!activeModal)
+    }
+
+    const onRemoveBoard = (boardId) => {
+        dispatch(removeBoard(boardId))
+        if (activeBoard._id === boardId) {
+            history.push(`/board/${boards[1]._id}`)
         }
+        onToggleModalOptions()
     }
 
-    componentWillUnmount() {
-        socketService.off('update board')
-        socketService.off('update boards')
-    }
-
-    loadActiveBoard = () => {
-        const { boardId } = this.props.match.params
-        this.props.loadBoard(boardId)
-    }
-
-    onRemoveTask = (taskId, group) => {
-        const { activeBoard } = this.props
-        const updatedBoard = taskService.remove(taskId, activeBoard, group)
-        this.props.updateBoard(updatedBoard)
-    }
-
-    onAddTask = (txt, groupId) => {
-        const { activeBoard } = this.props
-        const updatedBoard = taskService.add(txt, activeBoard, groupId)
-        this.props.updateBoard(updatedBoard)
-    }
-
-    onUpdateTask = (task, groupId) => {
-        const { activeBoard } = this.props
-        const updatedBoard = taskService.update(task, activeBoard, groupId)
-        this.props.updateBoard(updatedBoard)
-    }
-
-    onAddGroup = (groupName) => {
-        const { activeBoard } = this.props
+    const onAddGroup = (groupName) => {
         const updatedBoard = groupService.add(groupName, activeBoard)
-        this.props.updateBoard(updatedBoard)
+        dispatch(updateBoard(updatedBoard, 'Add group successfully'))
     }
 
-    onUpdateGroup = (group) => {
-        const { activeBoard } = this.props
+    const onUpdateGroup = (group) => {
         const updatedBoard = groupService.update(group, activeBoard)
-        this.props.updateBoard(updatedBoard)
+        dispatch(updateBoard(updatedBoard))
     }
 
-    onRemoveGroup = (ev, groupId) => {
+    const onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
-        const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
-        this.props.updateBoard(updatedBoard)
+        dispatch(updateBoard(updatedBoard, 'Remove group successfully'))
     }
 
-    onUpdateBoardName = (boardName) => {
-        const { activeBoard, boards } = this.props
+    const onRemoveTask = (taskId, group) => {
+        const updatedBoard = taskService.remove(taskId, activeBoard, group)
+        dispatch(updateBoard(updatedBoard, 'Remove task successfully'))
+    }
+
+    const onAddTask = (txt, groupId) => {
+        const updatedBoard = taskService.add(txt, activeBoard, groupId)
+        dispatch(updateBoard(updatedBoard, 'Add task successfully'))
+    }
+
+    const onUpdateTask = (task, groupId) => {
+        const updatedBoard = taskService.update(task, activeBoard, groupId)
+        dispatch(updateBoard(updatedBoard, 'Update task successfully'))
+    }
+
+    const onUpdateBoardName = (boardName) => {
         const updatedBoard = { ...activeBoard }
         updatedBoard.name = boardName
-        this.props.updateBoard(updatedBoard)
-        this.props.updateBoards(updatedBoard, boards)
+        dispatch(updateBoard(updatedBoard))
+        dispatch(updateBoards(updatedBoard, boards))
     }
 
-    onUpdateBoardDesc = (description) => {
-        const { activeBoard } = this.props
+    const onUpdateBoardDesc = (description) => {
         const updatedBoard = { ...activeBoard }
         updatedBoard.desc = description
-        this.props.updateBoard(updatedBoard)
+        dispatch(updateBoard(updatedBoard))
     }
 
-    handleDragEnd = async (res) => {
+    const handleDragEnd = async (res) => {
         const { source, destination, type } = res;
-        const { activeBoard } = this.props;
         const updatedBoard = { ...activeBoard };
         if (!destination) return;
         if (destination.droppableId === source.droppableId
             &&
             destination.index === source.index) return;
         if (type === 'group') {
-            const newGroups = this._reorder(activeBoard.groups, source.index, destination.index);
+            const newGroups = _reorder(activeBoard.groups, source.index, destination.index);
             updatedBoard.groups = newGroups;
         } else if (type === 'task') {
             if (destination.droppableId === source.droppableId) {
                 var groupIdx = activeBoard.groups.findIndex(group => group.id === source.droppableId)
-                const newTasks = this._reorder(activeBoard.groups[groupIdx].tasks, source.index, destination.index);
+                const newTasks = _reorder(activeBoard.groups[groupIdx].tasks, source.index, destination.index);
                 updatedBoard.groups[groupIdx].tasks = newTasks;
             } else if (destination.droppableId !== source.droppableId) {
                 const sourceGroup = source.droppableId;
@@ -137,30 +176,29 @@ export class _BoardDetails extends Component {
                 updatedBoard.groups[destinationGroupIdx].tasks = destinationGroupItems;
             }
         }
-        await this.props.updateBoard(updatedBoard);
+        dispatch(updateBoard(updatedBoard))
     }
 
-    _reorder = (list, sourceIdx, destIdx) => {
+    const _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
         items.splice(destIdx, 0, removedItem);
         return items;
     }
 
-    toggleFilter = () => {
-        var { isFilterShow } = this.state
-        isFilterShow = !isFilterShow
-        this.setState({ isFilterShow })
+    const toggleFilter = () => {
+        setIsFilterShow(!isFilterShow)
+    }
+    const onToggleModalOptions = () => {
+        setIsModalShown(!isModalShown)
     }
 
-    getGroupsForDisplay = (filterBy) => {
-        const { groups } = this.props.activeBoard;
-        var { groupsForDisplay } = this.state
-
+    const getGroupsForDisplay = (filterBy) => {
+        const { groups } = activeBoard;
         var updateGroups = JSON.parse(JSON.stringify(groups));
-        groupsForDisplay = []
+        var groupsForDisplay = []
 
-        if (!filterBy) return this.setState({ groupsForDisplay: null })
+        if (!filterBy) return setGroupsForDisplay(null)
 
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
@@ -176,11 +214,9 @@ export class _BoardDetails extends Component {
                 }
             })
         }
-
         if (filterBy.groupName) {
             groupsForDisplay = updateGroups.filter(currGroup => currGroup.name === filterBy.groupName);
         }
-
         if (filterBy.member) {
             groupsForDisplay = updateGroups.filter(currGroup => {
                 const tasks = []
@@ -194,73 +230,33 @@ export class _BoardDetails extends Component {
                 return currGroup;
             })
         }
-
         if (filterBy.status) {
-            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'status', filterBy))
+            groupsForDisplay = updateGroups.filter(currGroup => _filterByType(currGroup, 'status', filterBy))
         }
 
         if (filterBy.priority) {
-            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'priority', filterBy))
+            groupsForDisplay = updateGroups.filter(currGroup => _filterByType(currGroup, 'priority', filterBy))
         }
-        this.setState({ groupsForDisplay })
+        setGroupsForDisplay(groupsForDisplay)
     }
 
-    _filterByType = (group, type, filterBy) => {
+    const _filterByType = (group, type, filterBy) => {
         const tasks = group.tasks.filter(task => task[type] === filterBy[type])
         if (tasks.length) {
             group.tasks = tasks
             return group;
         }
     }
-
-    render() {
-        const { activeBoard, loggedInUser } = this.props
-        const { groupsForDisplay } = this.state
-        if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
-        return (
-            <section className="board-details flex col">
-                <div className="board-header-top-container flex col">
-                    <div className="board-header-top-left flex">
-                        <div
-                            className="board-name editable"
-                            contentEditable="true"
-                            onBlur={(ev) => {
-                                this.onUpdateBoardName(ev.target.innerText)
-                            }}
-                            suppressContentEditableWarning={true}
-                            onKeyDown={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    ev.target.blur()
-                                }
-                            }}
-                        >
-                            {activeBoard.name}
-                        </div>
-                        <div className="board-header-top-right flex">
-                            <span>
-                                <AvatarGroup max={3}>
-                                    {activeBoard.members.map((member) => {
-                                        return (
-                                            <Avatar
-                                                key={member._id}
-                                                className="avatar"
-                                                alt={`${member.fullname}`}
-                                                src={member.imgUrl}
-                                            />
-                                        )
-                                    })}
-                                </AvatarGroup>
-                            </span>
-                            <span className="activities">Activities/ 17</span>
-                            <LibraryBooksOutlinedIcon className="libary-icon" />
-                            <MoreHorizIcon />
-                        </div>
-                    </div>
-                    <span
-                        className="board-desc editable"
+    if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
+    return (
+        <section className="board-details flex col">
+            <div className="board-header-top-container flex col">
+                <div className="board-header-top-left flex">
+                    <div
+                        className="board-name editable"
                         contentEditable="true"
                         onBlur={(ev) => {
-                            this.onUpdateBoardDesc(ev.target.innerText)
+                            onUpdateBoardName(ev.target.innerText)
                         }}
                         suppressContentEditableWarning={true}
                         onKeyDown={(ev) => {
@@ -269,71 +265,109 @@ export class _BoardDetails extends Component {
                             }
                         }}
                     >
-                        {activeBoard.desc}
-                    </span>
-                    <div className="board-header-bottom-container flex space-between">
-                        <div className="board-creator">
-                            <span
-                                onClick={() => {
-                                    this.props.history.push(`/profile/${activeBoard.creator._id}`);
-                                }}>
-                                Created By: {activeBoard.creator.fullname}
-                            </span>
-                        </div>
-                        <div className="bottom-right-container flex">
-                            <button
-                                className="btn-add-group"
-                                onClick={() => {
-                                    this.onAddGroup('new group')
-                                }}>
-                                New Group
-                            </button>
-                            <GroupFilter
-                                getGroupsForDisplay={this.getGroupsForDisplay}
-                                groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
-                                activeBoard={activeBoard}
-                                toggleFilter={this.toggleFilter}
-                                isFilterShow={this.state.isFilterShow} />
-                            <MoreHorizIcon />
-                        </div>
+                        {activeBoard.name}
+                    </div>
+                    <div className="board-header-top-right flex">
+                        <span>
+                            <AvatarGroup max={3}>
+                                {activeBoard.members.map((member) => {
+                                    return (
+                                        <Avatar
+                                            key={member._id}
+                                            className="avatar"
+                                            alt={`${member.fullname}`}
+                                            src={member.imgUrl}
+                                        />
+                                    )
+                                })}
+                            </AvatarGroup>
+                        </span>
+                        <span className="activities" onClick={() => togglemodalActivities()} >Activities / {activities?.length}</span>
+                        {activeModal && <ActivitiesModal
+                            activities={activities}
+                        />}
+                        {activeModal &&
+                            <div
+                                onClick={() => togglemodalActivities()}
+                                className="screen "
+                            />}
+                        <LibraryBooksOutlinedIcon className="libary-icon" />
+                        {isModalShown &&
+                            <BoardSideNavModal
+                                className="board-modal-options"
+                                board={activeBoard}
+                                onRemove={onRemoveBoard}
+                                onToggleModalOptions={onToggleModalOptions}
+                            />}
+
+                        {isModalShown &&
+                            <div
+                                className="screen "
+                                onClick={() => onToggleModalOptions()}
+
+                            />}
+
+                        <MoreHorizIcon onClick={() => onToggleModalOptions()} />
                     </div>
                 </div>
-                {this.state.isFilterShow &&
-                    <div
-                        className="screen"
-                        onClick={this.toggleFilter}
-                    />}
-                <GroupList
-                    groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
-                    onRemoveTask={this.onRemoveTask}
-                    onAddTask={this.onAddTask}
-                    onUpdateTask={this.onUpdateTask}
-                    onUpdateGroup={this.onUpdateGroup}
-                    onRemoveGroup={this.onRemoveGroup}
-                    handleDragEnd={this.handleDragEnd}
-                    activeBoard={activeBoard}
-                    loggedInUser={loggedInUser}
-                />
-            </section>
-        )
-    }
+                <span
+                    className="board-desc editable"
+                    contentEditable="true"
+                    onBlur={(ev) => {
+                        onUpdateBoardDesc(ev.target.innerText)
+                    }}
+                    suppressContentEditableWarning={true}
+                    onKeyDown={(ev) => {
+                        if (ev.key === 'Enter') {
+                            ev.target.blur()
+                        }
+                    }}
+                >
+                    {activeBoard.desc}
+                </span>
+                <div className="board-header-bottom-container flex space-between">
+                    <div className="board-creator">
+                        <span
+                            onClick={() => {
+                                history.push(`/profile/${activeBoard.creator._id}`);
+                            }}>
+                            Created By: {activeBoard.creator.fullname}
+                        </span>
+                    </div>
+                    <div className="bottom-right-container flex">
+                        <button
+                            className="btn-add-group"
+                            onClick={() => {
+                                onAddGroup('new group')
+                            }}>
+                            New Group
+                                        </button>
+                        <GroupFilter
+                            getGroupsForDisplay={getGroupsForDisplay}
+                            groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
+                            activeBoard={activeBoard}
+                            toggleFilter={toggleFilter}
+                            isFilterShow={isFilterShow} />
+                        <MoreHorizIcon />
+                    </div>
+                </div>
+            </div>
+            {isFilterShow &&
+                <div
+                    className="screen"
+                    onClick={toggleFilter}
+                />}
+            <GroupList
+                groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
+                onRemoveTask={onRemoveTask}
+                onAddTask={onAddTask}
+                onUpdateTask={onUpdateTask}
+                onUpdateGroup={onUpdateGroup}
+                onRemoveGroup={onRemoveGroup}
+                handleDragEnd={handleDragEnd}
+                activeBoard={activeBoard}
+                loggedInUser={loggedInUser}
+            />
+        </section>
+    )
 }
-const mapGlobalStateToProps = (state) => {
-    return {
-        activeBoard: state.boardReducer.activeBoard,
-        boards: state.boardReducer.boards,
-        loggedInUser: state.userReducer.loggedInUser
-    };
-};
-const mapDispatchToProps = {
-    loadBoard,
-    loadBoards,
-    updateBoard,
-    updateBoards,
-    updateUser,
-    loginUser
-}
-export const BoardDetails = connect(
-    mapGlobalStateToProps,
-    mapDispatchToProps
-)(_BoardDetails);

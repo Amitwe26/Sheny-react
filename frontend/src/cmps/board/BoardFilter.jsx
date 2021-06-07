@@ -1,34 +1,34 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import Input from '@material-ui/core/Input';
 
-export class BoardFilter extends Component {
-    state = {
-        filterBy: {
-            txt: ''
-        }
+import React from 'react'
+
+export function BoardFilter({ getBoradsForDisplay, toggleSarech }) {
+    const [filterBy, setFilterBy] = useState({ txt: '' })
+
+    const handleChange = (ev) => {
+        const newFilterBy = { ...filterBy }
+        newFilterBy.txt = ev.target.value;
+        setFilterBy(newFilterBy)
+        getBoradsForDisplay(newFilterBy.txt);
     }
 
-    handleChange = (ev) => {
-        var filterBy = { ...this.state.filterBy }
-        filterBy.txt = ev.target.value;
-        this.setState({ filterBy }, () => {
-            this.props.getBoradsForDisplay(this.state.filterBy.txt);
-        })
-    }
-
-    render() {
-        const { filterBy } = this.state
-        return (
-            <section className="board-filter">
-                <Input
-                    type="text"
-                    name="name"
-                    autoComplete="off"
-                    placeholder="search"
-                    onChange={this.handleChange}
-                    value={filterBy.txt}>
-                </Input>
-            </section>
-        )
-    }
+    return (
+        <section className="board-filter flex">
+            <Input
+                type="text"
+                name="name"
+                autoFocus
+                autoComplete="off"
+                placeholder="search"
+                onChange={(ev) => handleChange(ev)}
+                value={filterBy.txt}>
+            </Input>
+            <button
+                className="btn-close"
+                onClick={() => toggleSarech()}>
+                X
+                </button>
+        </section>
+    )
 }

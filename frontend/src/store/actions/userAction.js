@@ -27,16 +27,23 @@ export function removeUser(userId) {
     }
 }
 
-export function updateUser(user) {
+export function updateUser(newUser) {
     return async dispatch => {
         try {
-            const loggedInUser = await userService.getById('600877404b50bc8b342c1734')
-            dispatch({ type: 'SET_USER', user: loggedInUser })
+            const loggedInUser = await userService.getById(newUser._id)
+            if (loggedInUser) {
+                dispatch({ type: 'SET_USER', user: newUser })
+                userService.update(newUser)
+            }
         } catch (err) {
             console.log('user Actions: err in updateUser', err)
         } finally {
         }
     }
+}
+
+export function checkUserLogin() {
+
 }
 
 export function loginUser(user) {
@@ -80,8 +87,8 @@ export function signup(userCreds) {
 export function logout() {
     return async dispatch => {
         try {
-            dispatch({ type: 'SET_USER', user: null })
             await userService.logout()
+            dispatch({ type: 'SET_USER', user: null })
         } catch (err) {
             console.log('UserActions: err in logout', err)
         }

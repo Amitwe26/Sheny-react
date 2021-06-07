@@ -1,6 +1,5 @@
 
 export function DeleteModalTask({ task, group, onRemove, onCloseModalDelete }) {
-
     return (
         < div className="modal-delete flex col space-between" >
             <div className="top">

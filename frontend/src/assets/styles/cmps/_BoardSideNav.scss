@@ -9,12 +9,23 @@
     .board-side-nav-top {
         padding: rem(20px) rem(12px);
         text-align: start;
+        border-bottom: 1px solid rgba(151, 151, 151, 0.493);
         border-radius: 15px 0 0 0;
         position: relative;
         h2 {
             font-family: font1;
             font-size: rem(16px);
             color: black;
+        }
+        .board-filter {
+            padding: 0 10px;
+            .btn-close {
+                background-color: unset;
+                border: none;
+                font-size: 16px;
+                align-self: flex-end;
+                cursor: pointer;
+            }
         }
     }
     .board-side-nav-bottom {
@@ -80,7 +91,7 @@
     width: 20px;
     top: 20px;
     z-index: 3;
-    transition: 0.4s;
+    transition: 0.3s;
     &:hover {
         color: white;
         background-color: #0085ff;

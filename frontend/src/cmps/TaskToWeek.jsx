@@ -1,23 +1,17 @@
-import { Component } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 var dateFormat = require('dateformat')
 
-export class TaskToWeek extends Component {
-    state = {
-        board: {},
-        userActive: '',
-        userTasks: []
-    }
+export function TaskToWeek({ board, userId }) {
+    // const [userActive, setUserActive] = useState('')
+    const [userTasks, setUserTasks] = useState([])
 
-    componentDidMount() {
-        const { board, username } = this.props
-        this.setState({ board }, () => {
-            this.findTasksPerUser(username)
-        })
-    }
+    useEffect(() => {
+        findTasksPerUser(userId)
+    }, [])
 
-    findTasksPerUser = (userId) => {
-        const { board } = this.state
+    const findTasksPerUser = (userId) => {
+        // const { board } = this.state
         const { groups } = board
         const userTasks = []
         groups.forEach(group => {
@@ -31,21 +25,21 @@ export class TaskToWeek extends Component {
                 userTasks.push(...tasks)
             }
         })
-        this.setState({ userTasks: userTasks })
+        setUserTasks(userTasks)
     }
 
-    changeDate = (date) => {
+    const changeDate = (date) => {
         const startDate = dateFormat(date.startDate, "dd-mm-yyyy")
         const endDate = dateFormat(date.endDate, "dd-mm-yyyy")
         const localDate = `${startDate} / ${endDate}`
         return localDate
     }
-    render() {
-        const { board, userTasks } = this.state
-        return (
-            <div>
-                {userTasks.map(task => {
-                    return <div key={task.id} className="tasks-user flex space-between">
+
+    return (
+        <section>
+            {userTasks.map(task => {
+                return (
+                    <div key={task.id} className="tasks-user flex space-between">
                         <div className="left flex col">
                             <span>{task.name}</span>
                             <div>
@@ -55,11 +49,11 @@ export class TaskToWeek extends Component {
                             </div>
                         </div>
                         <div className="right flex">
-                            {this.changeDate(task.dateRange)}
+                            {changeDate(task.dateRange)}
                         </div>
                     </div>
-                })}
-            </div>
-        )
-    }
+                )
+            })}
+        </section>
+    )
 }

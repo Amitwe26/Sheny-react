@@ -1,83 +1,78 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Person, Mail, Phone, Cake, Work } from '@material-ui/icons';
 
 import { Avatar } from '@material-ui/core';
 import { AppHeader } from '../cmps/AppHeader'
 import { userService } from '../services/userService';
 
-export class Profile extends Component {
-    state = {
-        user: {},
-        initials: ''
-    }
 
-    componentDidMount() {
-        this.loadUser()
-        this.getInitials('tak took')
+export function Profile() {
+    const [user, setUser] = useState({})
+    const [initials, setInitials] = useState('')
 
-    }
+    useEffect(() => {
+        loadUser()
+        getInitials('tak took')
+    }, [])
 
-    loadUser = async () => {
+    const loadUser = async () => {
         const user = await userService.getLoggedinUser()
-        const initials = this.getInitials(user.fullname)
-        this.setState({ user, initials })
+        const initials = getInitials(user.fullname)
+        setUser(user)
+        setInitials(initials)
     }
 
-    getInitials = (fullname) => {
+    const getInitials = (fullname) => {
         const names = fullname.split(' ')
         const initials = names[0].charAt(0) + names[1].charAt(0)
         return initials.toUpperCase()
     }
 
+    if (user === {}) return <div>Loading...</div>
+    return (
+        <React.Fragment>
+            <AppHeader />
+            <section className="profile flex col space-between">
+                <div className="profile-header flex col align-center">
+                    <div>{initials}</div>
+                    <h1>{user.fullname}</h1>
+                </div>
 
-    render() {
-        const { user, initials } = this.state
-        if (user === {}) return <div>Loading...</div>
-        return (
-            <React.Fragment>
-                <AppHeader />
-                <section className="profile flex col space-between">
-                    <div className="profile-header flex col align-center">
-                        <div>{initials}</div>
-                        <h1>{user.fullname}</h1>
+                <div className="profile-main flex space-between">
+                    <div className="first-panel ">
+                        <h2>My Boards</h2>
+                        <ul className="boards-list clean-list">
+                            <li>from board ⇒ task name </li>
+                            <li>from board ⇒ task name </li>
+                            <li>from board ⇒ task name </li>
+                        </ul>
                     </div>
 
-                    <div className="profile-main flex space-between">
-                        <div className="first-panel ">
-                            <h2>My Boards</h2>
-                            <ul className="boards-list clean-list">
-                                <li>from board ⇒ task name </li>
-                                <li>from board ⇒ task name </li>
-                                <li>from board ⇒ task name </li>
-                            </ul>
-                        </div>
-
-                        <div className="second-panel ">
-                            <h2>My Tasks</h2>
-                            <ul className="tasks-list clean-list">
-                                <li>from board ⇒ task name </li>
-                                <li>from board ⇒ task name </li>
-                                <li>from board ⇒ task name </li>
-                            </ul>
-                        </div>
-
-                        <div className="third-panel">
-                            <Avatar
-                                className="avatar"
-                                alt={`${user.fullname || 'G'} `}
-                                src={user.imgUrl || 'G'}
-                            />
-                            <ul className="clean-list">
-                                <li><Person /><span>username:</span>{user.fullname}</li>
-                                <li><Mail /><span>email:</span>{user.email}</li>
-                                <li><Phone /><span>Phone:</span>{user.phoneNumber}</li>
-                                <li><Cake /><span>Birthday:</span>{user.birthday}</li>
-                                <li><Work /><span>Company:</span>{user.company} </li>
-                            </ul>
-                        </div>
+                    <div className="second-panel ">
+                        <h2>My Tasks</h2>
+                        <ul className="tasks-list clean-list">
+                            <li>from board ⇒ task name </li>
+                            <li>from board ⇒ task name </li>
+                            <li>from board ⇒ task name </li>
+                        </ul>
                     </div>
-                </section>
-            </React.Fragment>
-        )
-    }
+
+                    <div className="third-panel">
+                        <Avatar
+                            className="avatar"
+                            alt={`${user.fullname || 'G'} `}
+                            src={user.imgUrl || 'G'}
+                        />
+                        <ul className="clean-list">
+                            <li><Person /><span>username:</span>{user.fullname}</li>
+                            <li><Mail /><span>email:</span>{user.email}</li>
+                            <li><Phone /><span>Phone:</span>{user.phoneNumber}</li>
+                            <li><Cake /><span>Birthday:</span>{user.birthday}</li>
+                            <li><Work /><span>Company:</span>{user.company} </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </React.Fragment>
+    )
 }

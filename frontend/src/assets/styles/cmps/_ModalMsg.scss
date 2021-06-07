@@ -1,0 +1,24 @@
+.modal-msg {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 141px;
+    bottom: 15px;
+    border-radius: 2px;
+    width: 180px;
+    height: 32px;
+    padding: 3px;
+    background-color: rgba(75, 74, 74, 0.836);
+    font-size: 14px;
+    opacity: 0;
+    color: white;
+}
+.open {
+    opacity: 1;
+    transition: opacity linear 0.7s;
+}
+.close {
+    opacity: 0;
+    transition: opacity linear 0.8s;
+}

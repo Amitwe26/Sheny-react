@@ -1,47 +1,35 @@
-import { Component } from 'react'
+import { useState } from 'react'
+import React from 'react'
 
-export class TaskAdd extends Component {
-    state = {
-        task: {
-            txt: '',
-        }
-    }
+export function TaskAdd({ onAddTask, groupId }) {
+    const [task, setTask] = useState({ txt: '' })
 
-    handleChange = (ev) => {
-        var task = { ...this.state.task }
-        var { name, value } = ev.target
-        task[name] = value;
-        this.setState({ task })
+    const handleChange = (ev) => {
+        const { value } = ev.target
+        const newTask = { ...task }
+        newTask.txt = value;
+        setTask(newTask)
     };
 
-    onAddTask = (ev) => {
+    const addTask = (ev) => {
         ev.preventDefault()
-        const taskName = this.state.task.txt
-        const { groupId } = this.props
-        this.props.onAddTask(taskName, groupId)
-        this.setState({
-            task: {
-                txt: '',
-            }
-        })
-
+        onAddTask(task.txt, groupId)
+        const newTask = { txt: '', }
+        setTask(newTask)
     }
-
-    render() {
-        const { task } = this.state
-        return (
-            <div>
-                <form onSubmit={this.onAddTask}>
-                    <input
-                        autoComplete="off"
-                        className="input-task"
-                        type="text"
-                        name="txt"
-                        placeholder="+Add"
-                        value={task.txt}
-                        onChange={this.handleChange} />
-                </form>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <form onSubmit={(ev) => addTask(ev)}>
+                <input
+                    autoComplete="off"
+                    className="input-task"
+                    type="text"
+                    name="txt"
+                    placeholder="+Add"
+                    value={task.txt}
+                    onChange={(ev) => handleChange(ev)} />
+            </form>
+        </div>
+    )
 }
+

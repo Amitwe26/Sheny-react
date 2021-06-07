@@ -9,7 +9,7 @@ export function GroupProgressBar({ tasks, activeBoard }) {
         priorityCounter[option.txt] = 0
     })
     tasks.forEach(task => {
-        priorityCounter[task.priority]++
+        priorityCounter[task?.priority]++
         statusCounter[task.status]++
     })
     return (

@@ -1,0 +1,2517 @@
+[
+    {
+        "_id": ObjectId("60073341552283e84ec6739a"),
+        "name": "Basic Structure",
+        "status": [
+            {
+                "txt": "Completed",
+                "color": "#00ca71"
+            },
+            {
+                "txt": "Working on it",
+                "color": "#fdab3d"
+            },
+            {
+                "txt": "Stuck",
+                "color": "#e44258"
+            },
+            {
+                "txt": "New",
+                "color": "gray"
+            }
+        ],
+        "priority": [
+            {
+                "txt": "Low",
+                "color": "#00ca71"
+            },
+            {
+                "txt": "Medium",
+                "color": "#fdab3d"
+            },
+            {
+                "txt": "High",
+                "color": "#e44258"
+            },
+            {
+                "txt": "Med-High",
+                "color": "rgb(255, 100, 46)"
+            }
+        ],
+        "creator": {
+            "_id": "600877404b50bc8b342c1732",
+            "fullname": "Tair Bitan",
+            "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+        },
+        "groups": [
+            {
+                "id": "r0FCU",
+                "name": "Implement Full CRUD",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "KtcRn",
+                        "name": "Board CRUD - at first, supported by rest api 📊 📈 📉",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Completed",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-23T22:00:00.000Z",
+                            "endDate": "2021-01-23T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Shalom",
+                                "imgUrl": "",
+                                "createdAt": 1611598241150.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "text": "ata batuah\n",
+                                "by": {
+                                    "_id": "a600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "createdAt": 1611480506509.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "tEtvR",
+                        "name": "Create fine logo for the app ✨✨",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            }
+                        ],
+                        "status": "Stuck",
+                        "priority": "High",
+                        "note": "Contact our designer",
+                        "dateRange": {
+                            "startDate": "2021-01-08T22:00:00.000Z",
+                            "endDate": "2021-01-24T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "text": "hey tair רוצה אני מכיר אותך לילהאחד?",
+                                "by": {
+                                    "_id": "a600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "createdAt": 1611483384790.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "EHNyK",
+                        "name": "Gruop CRUD - including all relevant functions  ⬆️ 🟧 🟨 🟩",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1732",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            },
+                            {
+                                "_id": "600d817a7e9ea065b5b3b465",
+                                "fullname": "Alina Orqaby",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497258/Alina_wtfai4.jpg"
+                            }
+                        ],
+                        "status": "Working on it",
+                        "priority": "Medium",
+                        "note": "Dont forget all the relevant functions",
+                        "dateRange": {
+                            "startDate": "2021-01-19T22:00:00.000Z",
+                            "endDate": "2021-01-26T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "alina orqaby",
+                                "imgUrl": "http://res.cloudinary.com/tair/image/upload/v1611597793/vlulmbzoswtbiz20xdzj.jpg",
+                                "createdAt": 1611597800190.0
+                            },
+                            {
+                                "text": "asdasd",
+                                "by": {},
+                                "createdAt": 1611496870044.0
+                            },
+                            {
+                                "text": "hello",
+                                "by": {},
+                                "createdAt": 1611496770354.0
+                            },
+                            {
+                                "text": "oved?",
+                                "by": {
+                                    "_id": "a600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "createdAt": 1611481005817.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "rqYlu",
+                        "name": "Task CRUD - support adding, updating and removing ➕ 📝",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1732",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            }
+                        ],
+                        "status": "Stuck",
+                        "priority": "Med-High",
+                        "note": "Im on it",
+                        "dateRange": {
+                            "startDate": "2021-01-19T22:00:00.000Z",
+                            "endDate": "2021-01-30T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "text": "ma",
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "text": "koko banbino",
+                                "by": {
+                                    "_id": "a600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "createdAt": 1611480739434.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "rgb(0, 134, 192)"
+            },
+            {
+                "id": "NcLdP",
+                "name": "Create Initial Data",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "nnpKb",
+                        "name": "Create Json file and write users data 🙎‍♀️🙍🏿🙎🏻‍♀️🙎🏽‍♂️ ",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Working on it",
+                        "priority": "Medium",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-09T22:00:00.000Z",
+                            "endDate": "2021-01-28T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "data",
+                                "imgUrl": "http://res.cloudinary.com/tair/image/upload/v1611663257/qhwnevcxy4lpsvrpweql.jpg",
+                                "createdAt": 1611663265784.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "data",
+                                "imgUrl": "",
+                                "createdAt": 1611663257906.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611658083967.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611658083967.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611658083967.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "NxOre",
+                        "name": "Create Json File With boards data 📜📃",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Completed",
+                        "priority": "Med-High",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-25T22:00:00.000Z",
+                            "endDate": "2021-01-30T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611657761274.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611657761274.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611657761274.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#00ca71"
+            },
+            {
+                "id": "svV68",
+                "name": "Add Basic CSS",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "3tjxj",
+                        "name": "Style the header and add description 👨‍🦲 📑",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Stuck",
+                        "priority": "High",
+                        "note": "I love css",
+                        "dateRange": {
+                            "startDate": "2021-01-02T22:00:00.000Z",
+                            "endDate": "2021-01-22T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "HBfUq",
+                        "name": "Create a side-bar that will make monday envy us 😈",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600d817a7e9ea065b5b3b465",
+                                "fullname": "Alina Orqaby",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497258/Alina_wtfai4.jpg"
+                            }
+                        ],
+                        "status": "Completed",
+                        "priority": "Medium",
+                        "note": "Our side bar looks the best",
+                        "dateRange": {
+                            "startDate": "2021-01-13T22:00:00.000Z",
+                            "endDate": "2021-02-26T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611173689280.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611173689280.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "spuNm",
+                        "name": "Make the app look greate on every screen 💻📲⌚️",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-25T18:06:57.208Z",
+                            "endDate": "2021-01-25T18:06:57.208Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611598017208.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611598017208.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611598017208.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "rgb(228, 66, 88)"
+            }
+        ],
+        "createdAt": 1610984765884.0,
+        "desc": "setup the basics of the app",
+        "members": [
+            {
+                "_id": "600877404b50bc8b342c1732",
+                "fullname": "Tair Bitan",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+            },
+            {
+                "_id": "600877404b50bc8b342c1733",
+                "fullname": "Amit Weiss",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+            },
+            {
+                "_id": "600877404b50bc8b342c1734",
+                "fullname": "Tamir Leshetz",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b464",
+                "fullname": "Hilla Meri",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611496676/Hilla_fumfyf.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b465",
+                "fullname": "Alina Orqaby",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497258/Alina_wtfai4.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b466",
+                "fullname": "Liron Abuhazera",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497241/Liron_lmomnt.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b467",
+                "fullname": "Alon Dai",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497267/Alon_zqgg5m.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b468",
+                "fullname": "Matan Crispel",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497275/Matan_ofprlj.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b469",
+                "fullname": "Liel Malihi",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497272/Liel_bskxru.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b46a",
+                "fullname": "Stav Yaar",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497279/Stav_toz3jc.jpg"
+            }
+        ]
+    },
+    {
+        "_id": ObjectId("60099a1c606436442c66bb93"),
+        "name": "Sheny Tutorial",
+        "desc": "Welcome To Your First Tasker ",
+        "status": [
+            {
+                "txt": "Completed",
+                "color": "#00ca71"
+            },
+            {
+                "txt": "Working on it",
+                "color": "#fdab3d"
+            },
+            {
+                "txt": "Stuck",
+                "color": "#e44258"
+            },
+            {
+                "txt": "New",
+                "color": "gray"
+            },
+            {
+                "txt": "New status",
+                "color": "rgb(120, 75, 209)"
+            },
+            {
+                "txt": "hhh",
+                "color": "rgb(0, 134, 192)"
+            },
+            {
+                "txt": "hfgjfghj",
+                "color": "rgb(120, 75, 209)"
+            }
+        ],
+        "priority": [
+            {
+                "txt": "Low",
+                "color": "#00ca71"
+            },
+            {
+                "txt": "Medium",
+                "color": "#fdab3d"
+            },
+            {
+                "txt": "High",
+                "color": "#e44258"
+            }
+        ],
+        "creator": {
+            "_id": "600877404b50bc8b342c1732",
+            "fullname": "Tair Bitan",
+            "imgUrl": ""
+        },
+        "groups": [
+            {
+                "id": "dD7V3",
+                "name": "Hello Tasker",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "cPNm9",
+                        "name": "Add, delete, customize and move groups and tasks easily on your board ✅",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1732",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            },
+                            {
+                                "_id": "600d817a7e9ea065b5b3b464",
+                                "fullname": "Hilla Meri",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611496676/Hilla_fumfyf.jpg"
+                            }
+                        ],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-25T10:13:33.935Z",
+                            "endDate": "2021-01-25T10:13:33.935Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "fasdfasdfa",
+                                "imgUrl": "",
+                                "createdAt": 1615921233915.0
+                            },
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "Shalom",
+                                "imgUrl": "",
+                                "createdAt": 1611649039406.0
+                            },
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "Look at the changes in the cmp\n",
+                                "imgUrl": "http://res.cloudinary.com/tair/image/upload/v1611569624/xnlwwaus7xwutxls0hh7.jpg",
+                                "createdAt": 1611569656808.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611569613935.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611569613935.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611569613935.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "Y4oFj",
+                        "name": "View your team's progress 🙎‍♀️🙍🏿🙎🏻‍♀️🙎🏽‍♂️ ",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600d817a7e9ea065b5b3b467",
+                                "fullname": "Alon Dai",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497267/Alon_zqgg5m.jpg"
+                            }
+                        ],
+                        "status": "New",
+                        "priority": "Medium",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-13T22:00:00.000Z",
+                            "endDate": "2021-01-27T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012599.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "rgb(32, 20, 17)"
+            },
+            {
+                "id": "r2Jtv",
+                "name": "Become a Tasker Master",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "cPNm9",
+                        "name": "Add, delete, customize and move groups and tasks easily on your board ✅",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600877404b50bc8b342c1732",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1734",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            },
+                            {
+                                "_id": "600d817a7e9ea065b5b3b464",
+                                "fullname": "Hilla Meri",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611496676/Hilla_fumfyf.jpg"
+                            }
+                        ],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-25T10:13:33.935Z",
+                            "endDate": "2021-01-25T10:13:33.935Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "fasdfasdfa",
+                                "imgUrl": "",
+                                "createdAt": 1615921233915.0
+                            },
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "Shalom",
+                                "imgUrl": "",
+                                "createdAt": 1611649039406.0
+                            },
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "Look at the changes in the cmp\n",
+                                "imgUrl": "http://res.cloudinary.com/tair/image/upload/v1611569624/xnlwwaus7xwutxls0hh7.jpg",
+                                "createdAt": 1611569656808.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611569613935.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611569613935.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611569613935.0
+                            }
+                        ]
+                    },
+                    null,
+                    {
+                        "id": "onM9l",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:21.956Z",
+                            "endDate": "2021-03-16T14:39:21.956Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905561956.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "Y4oFj",
+                        "name": "View your team's progress 🙎‍♀️🙍🏿🙎🏻‍♀️🙎🏽‍♂️ ",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "600d817a7e9ea065b5b3b467",
+                                "fullname": "Alon Dai",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497267/Alon_zqgg5m.jpg"
+                            }
+                        ],
+                        "status": "New",
+                        "priority": "Medium",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-13T22:00:00.000Z",
+                            "endDate": "2021-01-27T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012599.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "vIR9b",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:21.956Z",
+                            "endDate": "2021-03-16T14:39:21.956Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905561956.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "Q4UZ9",
+                        "name": "Set Deadlines",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "adsh21",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1733",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            }
+                        ],
+                        "status": "Working on it",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-18T22:00:00.000Z",
+                            "endDate": "2021-01-30T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "heyyy",
+                                "imgUrl": "",
+                                "createdAt": 1614591820304.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "hello ",
+                                "imgUrl": "",
+                                "createdAt": 1612561188841.0
+                            },
+                            {
+                                "by": {
+                                    "fullname": "Guest Guestis"
+                                },
+                                "text": "123\n",
+                                "imgUrl": "",
+                                "createdAt": 1612561147486.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012600.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012600.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012600.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4lSFv",
+                        "name": "Chat with your team mates in the task chat 💬",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "asd542",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "600877404b50bc8b342c1732",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            }
+                        ],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-20T22:00:00.000Z",
+                            "endDate": "2021-01-27T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242092175.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242092175.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242092175.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "Iwys1",
+                        "name": "adsfasdfsdfadasfdsfa",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-19T17:28:56.745Z",
+                            "endDate": "2021-03-19T17:28:56.745Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616174936745.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616174936745.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616174936745.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "rgb(253, 171, 61)"
+            },
+            {
+                "id": "s5BAC",
+                "name": "SERVER",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "3cKBf",
+                        "name": "Check notifications 🔔",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "2uk35b",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            },
+                            {
+                                "_id": "asd542",
+                                "fullname": "Amit Weiss",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                            },
+                            {
+                                "_id": "adsh21",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Working on it",
+                        "priority": "High",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-13T22:00:00.000Z",
+                            "endDate": "2021-01-27T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012600.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012600.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012600.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "D4Edj",
+                        "name": "Customize your own team's status and priority tags 🟧 🟨 🟩",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "adsh21",
+                                "fullname": "Tamir Leshetz",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                            }
+                        ],
+                        "status": "Stuck",
+                        "priority": "Medium",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-12T22:00:00.000Z",
+                            "endDate": "2021-01-23T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012599.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "6ntf1",
+                        "name": "Assign tasks to specific members  📝",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "2uk35b",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            }
+                        ],
+                        "status": "Working on it",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-14T22:00:00.000Z",
+                            "endDate": "2021-01-28T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "hey tamir you are good guy !",
+                                "imgUrl": "",
+                                "createdAt": 1611577564082.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "hey amit\n",
+                                "imgUrl": "",
+                                "createdAt": 1611577544886.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012599.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "zxkvK",
+                        "name": "Customize your board's statuses and priorities ",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [
+                            {
+                                "_id": "2uk35b",
+                                "fullname": "Tair Bitan",
+                                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                            }
+                        ],
+                        "status": "Completed",
+                        "priority": "Medium",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-01-13T22:00:00.000Z",
+                            "endDate": "2021-01-27T22:00:00.000Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1611242012599.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1611242012599.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "rgb(228, 66, 88)"
+            },
+            {
+                "id": "IqdOO",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "PsICc",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:21.956Z",
+                            "endDate": "2021-03-16T14:39:21.956Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905561956.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905561956.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#e44258"
+            },
+            {
+                "id": "49SJS",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "UfqUm",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:23.331Z",
+                            "endDate": "2021-03-16T14:39:23.331Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905563331.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "rWszt",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:23.331Z",
+                            "endDate": "2021-03-16T14:39:23.331Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905563331.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "KwwwI",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:23.331Z",
+                            "endDate": "2021-03-16T14:39:23.331Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905563331.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905563331.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#0085ff"
+            },
+            {
+                "id": "yui9g",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "Z8DLl",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:24.746Z",
+                            "endDate": "2021-03-16T14:39:24.746Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905564746.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "RHQcW",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:24.746Z",
+                            "endDate": "2021-03-16T14:39:24.746Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905564746.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "dNB6M",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-16T14:39:24.746Z",
+                            "endDate": "2021-03-16T14:39:24.746Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1615905564746.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1615905564746.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#fdab3d"
+            },
+            {
+                "id": "BLJ5V",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "xTyHL",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:43.825Z",
+                            "endDate": "2021-03-18T16:55:43.825Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086543825.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "JvyVC",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:43.825Z",
+                            "endDate": "2021-03-18T16:55:43.825Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086543825.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "VQvGt",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:43.825Z",
+                            "endDate": "2021-03-18T16:55:43.825Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086543825.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086543825.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#00ca71"
+            },
+            {
+                "id": "suJuJ",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "LOhKG",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.158Z",
+                            "endDate": "2021-03-18T16:55:45.158Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545158.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545158.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545158.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "MhW00",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.158Z",
+                            "endDate": "2021-03-18T16:55:45.158Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545159.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545159.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545159.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "x0VlP",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.159Z",
+                            "endDate": "2021-03-18T16:55:45.159Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545159.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545159.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545159.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#00ca71"
+            },
+            {
+                "id": "5XBzT",
+                "name": "new group",
+                "createdAt": 1606733763732.0,
+                "updatedAt": 1606733763732.0,
+                "tasks": [
+                    {
+                        "id": "ReFFG",
+                        "name": "task1",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.295Z",
+                            "endDate": "2021-03-18T16:55:45.295Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545295.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "sHT4j",
+                        "name": "task2",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.295Z",
+                            "endDate": "2021-03-18T16:55:45.295Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545295.0
+                            }
+                        ]
+                    },
+                    {
+                        "id": "5hzaS",
+                        "name": "task3",
+                        "tags": [
+                            "demo",
+                            "instructions",
+                            "tutorial"
+                        ],
+                        "createdAt": 1606733763732.0,
+                        "updatedAt": 1606733763732.0,
+                        "members": [],
+                        "status": "New",
+                        "priority": "Low",
+                        "note": "Add notes to your task",
+                        "dateRange": {
+                            "startDate": "2021-03-18T16:55:45.295Z",
+                            "endDate": "2021-03-18T16:55:45.295Z"
+                        },
+                        "comments": [
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1732",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+                                },
+                                "text": "This is the task's chat",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1733",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+                                },
+                                "text": "Here you can send comments, thoughts and updates about the task",
+                                "createdAt": 1616086545295.0
+                            },
+                            {
+                                "by": {
+                                    "_id": "600877404b50bc8b342c1734",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+                                },
+                                "text": "Or simply chat with the task members",
+                                "createdAt": 1616086545295.0
+                            }
+                        ]
+                    }
+                ],
+                "color": "#e44258"
+            }
+        ],
+        "createdAt": 1611242012600.0,
+        "members": [
+            {
+                "_id": "600877404b50bc8b342c1732",
+                "fullname": "Tair Bitan",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+            },
+            {
+                "_id": "600877404b50bc8b342c1733",
+                "fullname": "Amit Weiss",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
+            },
+            {
+                "_id": "600877404b50bc8b342c1734",
+                "fullname": "Tamir Leshetz",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b464",
+                "fullname": "Hilla Meri",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611496676/Hilla_fumfyf.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b465",
+                "fullname": "Alina Orqaby",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497258/Alina_wtfai4.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b466",
+                "fullname": "Liron Abuhazera",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497241/Liron_lmomnt.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b467",
+                "fullname": "Alon Dai",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497267/Alon_zqgg5m.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b468",
+                "fullname": "Matan Crispel",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497275/Matan_ofprlj.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b469",
+                "fullname": "Liel Malihi",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497272/Liel_bskxru.jpg"
+            },
+            {
+                "_id": "600d817a7e9ea065b5b3b46a",
+                "fullname": "Stav Yaar",
+                "imgUrl": "https://res.cloudinary.com/tair/image/upload/v1611497279/Stav_toz3jc.jpg"
+            }
+        ]
+    }
+]

@@ -1,99 +1,116 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Switch, Route, useHistory } from 'react-router-dom'
 
-import { loadBoards, removeBoard, addBoard, updateBoards } from '../store/actions/boardAction'
+import { loadBoards, removeBoard, addBoard, setActiveBoard } from '../store/actions/boardAction'
 import { BoardDetails } from '../cmps/board/BoardDetails'
 import { BoardSideNav } from '../cmps/board/BoardSideNav'
 import { AppHeader } from '../cmps/AppHeader'
 
-class _BoardApp extends Component {
-    state = {
-        boardsForDisplay: null,
-        isLoading: false
-    }
+import React from 'react'
+import { Logo } from '../cmps/Logo'
+import { ModalMsg } from '../cmps/ModalMsg'
+// import { storageService } from '../services/storageService'
 
-    async componentDidMount() {
-        this.setState({ isLoading: true })
+export function BoardApp(props) {
+    const { loggedInUser } = useSelector(state => state.userReducer)
+    const { boards, activeBoard, msg } = useSelector(state => state.boardReducer)
+    const [isLoading, setIsLoadinge] = useState(true)
+    const [msgOpen, setMsgOpen] = useState(false)
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    useEffect(() => {
+        setIsLoadinge(true)
         setTimeout(async () => {
-            await this.loadBoards()
-            const { boards } = this.props
-            if (boards) {
-                this.setState({ isLoading: false })
-                this.props.history.push(`/board/${boards[1]._id}`)
-                return
-            }
-            if (!boards || !boards.length) {
-                return
-            }
-            this.setState({ isLoading: false })
+            await getBoards()
+
         }, 4000);
+    }, [])
+
+    useEffect(() => {
+        if (msg) {
+            setMsgOpen(true)
+            setTimeout(() => {
+                setMsgOpen(false)
+                dispatch({ type: 'SET_MSG', msg: null })
+            }, 1700);
+        }
+        if (msg === 'Add Board successfully') {
+            const num = boards.length
+            history.push(`/board/${boards[num - 1]._id}`)
+        }
+    }, [msg])
+
+    const getBoards = async () => {
+        // const dispatch(checkUserLogin())
+        await onLoadBoards()
+        await onSetActiveBoard()
+
+        setIsLoadinge(false)
+
     }
 
-    loadBoards = async () => {
-        await this.props.loadBoards()
+    const onLoadBoards = async () => {
+        dispatch(loadBoards())
+
     }
 
-    onRemove = async (boardId) => {
-        const { boards } = this.props
-        this.props.history.push(`/board/${boards[1]._id}`)
-        await this.props.removeBoard(boardId)
-    }
-    onAdd = async (board) => {
-        await this.props.addBoard(board)
+    useEffect(() => {
+        if (boards && !isLoading) {
+            history.push(`/board/${boards[0]._id}`)
+        }
+
+    }, [boards])
+
+    const onSetActiveBoard = async () => {
+        dispatch(setActiveBoard(boards[0]))
+
     }
 
-    getBoradsForDisplay = async (filterBy) => {
-        let { boards } = this.props
-        const regex = new RegExp(filterBy, 'i')
-        boards = boards.filter(board => regex.test(board.name))
-        this.setState({ boardsForDisplay: boards })
+    const onRemove = async (boardId) => {
+        dispatch(removeBoard(boardId))
+        if (activeBoard._id === boardId) {
+            history.push(`/board/${boards[1]._id}`)
+        }
     }
 
-    render() {
-        const { boards } = this.props
-        const { boardsForDisplay } = this.state
-        if (this.state.isLoading) return (
-            <div className="loader-container flex center align-center">
-                <video width="700" height="700" autoPlay loop preload="true">
-                    <source src="loader.mp4" type="video/mp4"></source>
-                </video>
-            </div>
-        )
-        if (!boards) return <div>Loading no boards...</div>
-        return (
-            <section className="board-app flex">
-                <AppHeader />
-                <section className="board-main flex">
-                    <BoardSideNav
-                        boards={boardsForDisplay || boards}
-                        getBoradsForDisplay={this.getBoradsForDisplay}
-                        onRemove={this.onRemove}
-                        onAdd={this.onAdd}
-                    />
-                    <Switch>
-                        <Route path="/board/:boardId" component={BoardDetails} />
-                    </Switch>
-                </section>
-
-            </section>
-        )
+    const onAdd = async (board, user) => {
+        dispatch(addBoard(board, user))
     }
+
+    //     async componentDidMount() {
+    //         this.setState({ isLoading: true })
+    //         setTimeout(async () => {
+    //             await this.loadBoards()
+    //             const { boards } = this.props
+    //             if (boards) {
+    //                 this.setState({ isLoading: false })
+    //                 this.props.history.push(`/board/${boards[0]._id}`)
+    //                 return
+    //             }
+    //             if (!boards || !boards.length) {
+    //                 return
+    //             }
+    //             this.setState({ isLoading: false })
+    //         }, 4000);
+    //     }
+    if (!boards) return <div><h1>loading..</h1></div>
+    return (
+        <section className="board-app flex">
+            <AppHeader />
+            {isLoading && <Logo />}
+            {!isLoading && <section className="board-main flex">
+                < BoardSideNav
+                    onRemove={(boardId) => onRemove(boardId)}
+                    onAdd={(board, user) => onAdd(board, user)}
+                />
+                <Switch>
+                    <Route path="/board/:boardId" component={BoardDetails} />
+                </Switch>
+                {<ModalMsg msgOpen={msgOpen} />}
+            </section>}
+
+        </section >
+    )
 }
-const mapGlobalStateToProps = (state) => {
-    return {
-        boards: state.boardReducer.boards,
-        activeBoard: state.boardReducer.activeBoard,
-    };
-};
-const mapDispatchToProps = {
-    loadBoards,
-    removeBoard,
-    addBoard,
-    updateBoards
-}
-
-export const BoardApp = connect(
-    mapGlobalStateToProps,
-    mapDispatchToProps
-)(_BoardApp);

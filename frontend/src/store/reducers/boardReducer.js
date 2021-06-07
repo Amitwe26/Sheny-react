@@ -1,6 +1,7 @@
 const initialState = {
     activeBoard: null,
-    boards: []
+    boards: [],
+    msg: ''
 }
 
 export function boardReducer(state = initialState, action) {
@@ -13,6 +14,8 @@ export function boardReducer(state = initialState, action) {
             return { ...state, boards: state.boards.filter(board => action.boardId !== board._id) };
         case 'ADD_BOARD':
             return { ...state, boards: [...state.boards, action.board] };
+        case 'SET_MSG':
+            return { ...state, msg: action.msg }
         default:
             return state;
     }

@@ -1,0 +1,21 @@
+.ActivitiesModal {
+    position: absolute;
+    width: 450px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    top: 75px;
+    right: 87px;
+    z-index: 13;
+    background-color: #f3f3f3;
+    text-align: left;
+    overflow: auto;
+    .active-preview {
+        border: 1px solid #d1d1d1;
+        border-radius: 5px;
+        background-color: white;
+        padding: 4px;
+        margin-bottom: 5px;
+    }
+}

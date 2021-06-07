@@ -26,6 +26,7 @@
         }
         .board-header-top-right {
             align-items: center;
+            position: static;
             flex-grow: 1;
             justify-content: flex-end;
             padding-inline-end: 52px;
@@ -48,9 +49,15 @@
                 color: rgb(50, 51, 56);
                 border: 1px solid #c5c7d0;
                 border-radius: 4px;
+                cursor: pointer;
             }
             .libary-icon {
                 display: none;
+            }
+            .board-modal-options {
+                // position: absolute;
+                left: 80%;
+                top: 33%;
             }
         }
         .board-desc {

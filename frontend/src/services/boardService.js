@@ -30,8 +30,8 @@ async function getById(boardId) {
     return await httpService.get(BASE_URL + '/' + boardId)
 }
 
-async function add(boardName) {
-    const board = _createBoard(boardName)
+async function add(boardName, user) {
+    const board = _createBoard(boardName, user)
     const savedBoard = await httpService.post(BASE_URL, board)
     return savedBoard
 }
@@ -46,7 +46,7 @@ function updateBoards(updatedBoard, boards) {
 }
 
 
-function _createBoard(boardName) {
+function _createBoard(boardName, user) {
     return {
         name: boardName,
         desc: 'edit your new board...',
@@ -83,9 +83,9 @@ function _createBoard(boardName) {
             }
         ],
         creator: {
-            _id: "600877404b50bc8b342c1732",
-            fullname: "Tair Bitan",
-            imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
+            _id: user._id,
+            fullname: user.fullname,
+            imgUrl: user.imgUrl
         },
         groups: [
             groupService.createGroup('group1'),

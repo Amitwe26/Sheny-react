@@ -1,90 +1,65 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
-
 import { loadBoards } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
 import { ListMyWeek } from '../cmps/ListMyWeek'
 import Calendar from '../assets/icons/calendar.png'
 
-export class _MyWeek extends Component {
-    state = {
-        boardsForDisplay: null,
-        isTaskShown: true,
-        filterBy: {
-            txt: ''
-        }
-    }
-    componentDidMount() {
-        this.loadBoards()
-        const { boards } = this.props
+export function MyWeek() {
+    const { loggedInUser } = useSelector(state => state.userReducer)
+    const { boards } = useSelector(state => state.boardReducer)
+    const [boardsForDisplay, setBoardsForDisplay] = useState(null)
+    const [isTaskShown, setIsTaskShown] = useState(true)
+    const [filterBy, setFilterBy] = useState({ txt: '' })
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(loadBoards())
         if (!boards || !boards.length) {
             return
         }
+    }, [])
+
+    const toggleTasksMode = () => {
+        setIsTaskShown(!isTaskShown)
     }
 
-    loadBoards = () => {
-        this.props.loadBoards()
+    const handleChange = (ev) => {
+        const filter = { ...filterBy }
+        filter.txt = ev.target.value
+        setFilterBy(filter)
+        getBoardsForDisplay()
     }
 
-    toggleTasksMode = () => {
-        this.setState({ isTaskShown: !this.state.isTaskShown })
-    }
-    handleChange = (ev) => {
-        var filterBy = { ...this.state.filterBy }
-        filterBy.txt = ev.target.value
-        this.setState({ filterBy })
-        this.getBoardsForDisplay()
-    }
-    getBoardsForDisplay = () => {
-        const { filterBy } = this.state
-        if (!filterBy) return this.setState({ boardForDisplay: null })
+    const getBoardsForDisplay = () => {
+        if (!filterBy) return setBoardsForDisplay(null)
     }
 
-    render() {
-        const { boards, loggedInUser } = this.props
-        const { isTaskShown } = this.state
-        return (
-            <React.Fragment>
-                <AppHeader />
-                <section className="my-week">
-                    <div className="top flex space-around align-center">
-                        <img src={Calendar} alt="" />
-                        <h2>Hey {loggedInUser.username} ,You have 4 assignments this week</h2>
+    return (
+        <React.Fragment>
+            <AppHeader />
+            <section className="my-week">
+                <div className="top flex space-around align-center">
+                    <img src={Calendar} alt="" />
+                    <h2>Hey {loggedInUser.username} ,You have 4 assignments this week</h2>
+                </div>
+                <Input
+                    type="text"
+                    name="name"
+                    autoComplete="off"
+                    placeholder="Search"
+                    onChange={() => handleChange()}
+                />
+                <div className="bottom">
+                    <div className="flex space-between">
+                        <p>Tasks For You:</p>
+                        <Button onClick={() => toggleTasksMode()}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
                     </div>
-                    <Input
-                        type="text"
-                        name="name"
-                        autoComplete="off"
-                        placeholder="Search"
-                        onChange={this.handleChange}
-                    />
-                    <div className="bottom">
-                        <div className="flex space-between">
-                            <p>Tasks For You:</p>
-                            <Button onClick={this.toggleTasksMode}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
-                        </div>
-                        {isTaskShown && <ListMyWeek boards={boards} username={loggedInUser._id} />}
-                    </div>
-                </section>
-            </React.Fragment >
-        )
-    }
+                    {isTaskShown && <ListMyWeek boards={boards} userId={loggedInUser._id} />}
+                </div>
+            </section>
+        </React.Fragment >
+    )
 }
-const mapGlobalStateToProps = (state) => {
-    return {
-        loggedInUser: state.userReducer.loggedInUser,
-        boards: state.boardReducer.boards
-    };
-};
-const mapDispatchToProps = {
-    loadBoards,
-
-}
-
-export const MyWeek = connect(
-    mapGlobalStateToProps,
-    mapDispatchToProps
-)(_MyWeek);
