@@ -1,21 +1,29 @@
-.ActivitiesModal {
-    position: absolute;
-    width: 450px;
-    height: 200px;
+.activities-modal {
+    position: fixed;
+    // width: 550px;
+    height: 100vh;
     padding: 10px;
     border: 1px solid #d1d1d1;
     border-radius: 4px;
-    top: 75px;
-    right: 87px;
+    top: 0;
+    right: 0;
     z-index: 13;
     background-color: #f3f3f3;
     text-align: left;
-    overflow: auto;
+    overflow: hidden;
+    transform: translateX(10px);
+    transition: transform 2s linear;
     .active-preview {
         border: 1px solid #d1d1d1;
         border-radius: 5px;
         background-color: white;
         padding: 4px;
         margin-bottom: 5px;
+    }
+    .modal-open {
+        transform: translateX(120%);
+        margin: auto;
+        padding: 20px;
+        width: 20%;
     }
 }

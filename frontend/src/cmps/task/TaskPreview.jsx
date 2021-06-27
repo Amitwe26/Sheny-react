@@ -10,8 +10,8 @@ import { Notes } from './columns/Notes';
 import { TaskMembers } from './columns/TaskMembers';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
-import { DeleteModalTask } from '../DeleteModalTask';
 import { socketService } from '../../services/socketService';
+import { DeleteModalBoard } from '../DeleteModalBoard';
 
 export class TaskPreview extends Component {
     state = {
@@ -175,8 +175,9 @@ export class TaskPreview extends Component {
 
         return (
             <div
-                style={{ borderLeft: `8px solid ${group.color} ` }}
+                // style={{ borderLeft: `8px solid ${group.color} ` }}
                 className="task-preview flex space-between">
+                <div className="color-group" style={{ background: ` ${group.color} ` }}></div>
                 <div className="task-left flex space-between align-center" {...provided.dragHandleProps}>
                     <div className="task-left-content flex align-center text-no-overflow">
                         <Delete
@@ -184,15 +185,17 @@ export class TaskPreview extends Component {
                             onClick={this.onToggleDelete}
                         />
                         {this.state.isModalDeleteShown &&
-                            <DeleteModalTask
+                            <DeleteModalBoard
                                 onRemove={onRemoveTask}
-                                task={task}
+                                info={task}
+                                keyName={'task'}
                                 group={group}
-                                onCloseModalDelete={this.onToggleDelete}
+                                onToggleModalDelete={this.onToggleDelete}
                             />}
                         {this.state.isModalDeleteShown &&
                             <div
                                 className="dark-screen-nover "
+                                onClick={this.onToggleDelete}
                             />}
                         {editMode &&
                             <form onSubmit={(ev) => {

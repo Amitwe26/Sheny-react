@@ -1,126 +1,92 @@
 import { Link } from 'react-router-dom'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BoardSideNavModal } from './BoardSideNavModal';
-import { DeleteModalBoard } from '../DeleteModalBoard';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateBoard } from '../../store/actions/boardAction';
 
 // import React from 'react'
 
 export function BoardPreview({ board, onRemove }) {
+    // const { boards } = useSelector(state => state.boardReducer)
     const [isModalShown, setIsModalShown] = useState(false)
     // const [isModalDeleteShown, setIsModalDeleteShown] = useState(false)
-    const [isLoding, setIsLoding] = useState(false)
+    const [boardName, setBoardName] = useState('')
+    const [editName, setEditName] = useState(false)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        setIsLoding(true)
-        // setTimeout(() => {
-        //     // getBoards()
-        //     setIsLoding(false)
-
-        // }, 4000);
+        setBoardName(board.name)
     }, [])
 
-    const toggleModal = () => {
+    const onToggleModalOptions = () => {
         setIsModalShown(!isModalShown)
     }
 
-    const onToggleModalOptions = () => {
-        setIsModalShown(false)
+    const onToggleEditName = () => {
+        setEditName(!editName)
+    }
+
+    const handleChange = (ev) => {
+        const { value } = ev.target
+
+        const boardCopy = { ...board }
+        boardCopy.name = value
+        setBoardName(boardCopy.name)
+
+    }
+
+    const onEditAndSaveName = (ev) => {
+        ev.preventDefault()
+        onUpdateBoardInfo()
+        setEditName(false)
+    }
+
+    const onUpdateBoardInfo = () => {
+        const updatedBoard = { ...board }
+        updatedBoard.name = boardName.charAt(0).toUpperCase() + boardName.slice(1)
+        setBoardName(updatedBoard.name)
+        dispatch(updateBoard(updatedBoard, 'Update Board successfully'))
     }
 
     return (
         <React.Fragment>
-            {/* {isLoding && Logo()} */}
-            {/* {!isLoding &&  */}
             <section className="board-preview flex align-center" >
-                <Link to={`/board/${board._id}`}>
-                    {board.name}
-                </Link>
+                {!editName && <Link to={`/board/${board._id}`}>
+                    {boardName}
+                </Link>}
+                {editName &&
+                    <form onSubmit={(ev) => onEditAndSaveName(ev)}>
+                        <input
+                            className="input-edit-board"
+                            value={boardName}
+                            autoComplete="off"
+                            autoFocus={true}
+                            onChange={(ev) => handleChange(ev)}
+                        >
 
+                        </input>
+                        <button type="submit" hidden></button>
+                    </form>}
                 <MoreHorizIcon
                     className="more-icon"
-                    onClick={() => toggleModal()} />
+                    onClick={() => onToggleModalOptions()} />
 
                 {isModalShown &&
                     <BoardSideNavModal
                         board={board}
                         onRemove={onRemove}
                         onToggleModalOptions={onToggleModalOptions}
+                        onToggleEditName={onToggleEditName}
                     />}
 
                 {isModalShown &&
                     <div
                         className="screen"
-                        onClick={() => toggleModal()}
+                        onClick={() => onToggleModalOptions()}
                     />}
 
             </section >
-            {/* } */}
         </React.Fragment>
     )
 }
-
-// export class BoardPreview extends Component {
-//     state = {
-//         isModalShown: false,
-//         isModalDeleteShown: false,
-//         isLoding: false
-//     }
-
-//     toggleModal = () => {
-//         var { isModalShown } = this.state
-//         this.setState({ isModalShown: !isModalShown })
-//     }
-
-//     onOpenModalDelete = () => {
-//         var { isModalDeleteShown } = this.state
-//         this.setState({ isModalDeleteShown: !isModalDeleteShown })
-//     }
-
-//     onCloseModalDelete = () => {
-//         this.setState({ isModalDeleteShown: false, isModalShown: false })
-//     }
-
-//     render() {
-//         const { board, onRemove } = this.props
-//         return (
-//             <React.Fragment>
-//                 {/* {!this.isLoding && <Logo />} */}
-//                 {this.isLoding && <section className="board-preview flex align-center" >
-//                     <Link to={`/board/${board._id}`}>
-//                         {board.name}
-//                     </Link>
-
-//                     <MoreHorizIcon
-//                         className="more-icon"
-//                         onClick={this.toggleModal} />
-
-//                     {this.state.isModalShown &&
-//                         <BoardSideNavModal
-//                             board={board}
-//                             onOpenModalDelete={this.onOpenModalDelete}
-//                         />}
-
-//                     {this.state.isModalShown &&
-//                         <div
-//                             className="screen"
-//                             onClick={this.toggleModal}
-//                         />}
-
-//                     {this.state.isModalDeleteShown &&
-//                         <DeleteModalBoard
-//                             board={board}
-//                             onRemove={onRemove}
-//                             onCloseModalDelete={this.onCloseModalDelete}
-//                         />
-//                     }
-//                     {this.state.isModalDeleteShown &&
-//                         <div
-//                             className="dark-screen-nover "
-//                         />}
-//                 </section >}
-//             </React.Fragment>
-//         )
-
-//     }
-// }

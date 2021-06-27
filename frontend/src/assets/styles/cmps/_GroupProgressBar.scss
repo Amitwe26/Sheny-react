@@ -2,13 +2,15 @@
     position: relative;
     flex-direction: row-reverse;
     right: 0;
-    transform: translateX(-17px);
+    transform: translateX(-7px);
     margin: 9px 0 0px;
     height: 20px;
     & > * {
         width: 150px;
         margin-right: 150px;
-        background-color: gray;
+        background-color: #f5f6f8;
+        padding: 7px;
+        height: 37px;
         & > * {
             transition: 0.3s;
 

@@ -11,6 +11,14 @@
         flex-grow: 1;
         text-align: left;
     }
+    .input-edit-board {
+        width: 166px;
+        height: 27px;
+        outline: none;
+        border: none;
+        border: 1px dashed #0085ff;
+        background-color: unset;
+    }
     .more-icon {
         opacity: 0;
     }

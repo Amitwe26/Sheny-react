@@ -22,7 +22,7 @@
         color: white;
     }
     h1 {
-        font-size: rem(32px);
+        font-size: rem(30px);
         font-weight: 300;
         color: white;
     }
@@ -30,21 +30,30 @@
 
 .profile-main {
     flex-grow: 1;
-    padding-top: rem(48px);
+    padding-top: rem(38px);
     background-color: white;
     border-left: 1px solid white;
     z-index: 2;
     & > * {
         margin: rem(16px);
-        padding: rem(16px) rem(80px);
+        // padding: rem(16px) rem(50px);
     }
     .first-panel {
         flex-grow: 1;
         border-inline-end: 5px solid rgba(170, 168, 168, 0.116);
         border-radius: 1px;
         h2 {
-            line-height: rem(150px);
+            line-height: rem(100px);
             margin-top: 0px;
+        }
+        .list {
+            height: 35vh;
+            overflow-x: scroll;
+            .tasks-user {
+                font-size: 14px;
+                border-bottom: 1px solid black;
+                padding: 3px;
+            }
         }
     }
 
@@ -53,24 +62,31 @@
         border-inline-end: rem(5px) solid rgba(170, 168, 168, 0.116);
         border-radius: 1px;
         h2 {
-            line-height: rem(150px);
+            line-height: rem(100px);
             margin-top: 0px;
         }
     }
 
     .third-panel {
-        flex-grow: 1;
+        // flex-grow: 1;
         text-align: start;
+        margin: 0 auto;
+        width: 50vw;
         .avatar {
-            width: rem(150px);
-            height: rem(150px);
+            width: rem(70px);
+            height: rem(70px);
             margin-bottom: rem(16px);
             font-size: 5rem;
         }
+        .clean-list {
+            padding: 5px;
+        }
         li {
             margin-bottom: rem(16px);
+            padding: 1px;
             display: flex;
             align-items: center;
+            cursor: pointer;
             span {
                 font-weight: bold;
                 margin-inline-start: 0.5rem;
@@ -79,6 +95,32 @@
             svg {
                 opacity: 0.8;
             }
+            &:hover {
+                border: 1px dashed gray;
+            }
         }
+        .btn-remove {
+            background-color: #f13939;
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}
+.modal-profile {
+    text-align: start;
+    position: absolute;
+    padding: 10px 20px;
+    width: 50vw;
+    height: 150px;
+    top: 40%;
+    z-index: 12;
+    border: 1px solid black;
+    left: 50%;
+    background-color: white;
+    transform: translateX(-50%);
+    input {
+        width: 70%;
     }
 }

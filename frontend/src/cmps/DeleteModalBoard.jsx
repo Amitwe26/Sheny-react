@@ -1,15 +1,45 @@
+import { useEffect, useState } from 'react';
 
-export function DeleteModalBoard({ board, onRemove, onToggleModalOptions }) {
+export function DeleteModalBoard({
+  info,
+  keyName,
+  onRemove,
+  onToggleModalDelete,
+  group,
+}) {
+  const [key, setKey] = useState('');
+  // const [state, setstate] = useState(initialState)
+  useEffect(() => {
+    if (keyName) setKey(keyName);
+    if (group) {
+    }
+  }, [keyName]);
 
-    return (
-        < div className="modal-delete flex col space-between" >
-            <div className="top">
-                <p>Are you sure want to delete Board? "{board.name}"</p>
-            </div>
-            <div className="bottom flex align-center">
-                <button className="btn-delete" onClick={() => onRemove(board._id)}>Delete</button>
-                <button className="btn-go-back" onClick={() => onToggleModalOptions()}>Go Back</button>
-            </div>
-        </div >
-    )
+  const clickToRemove = () => {
+    if (keyName === 'task') {
+      onRemove(info.id, group);
+    } else if (keyName === 'group') {
+      onRemove(info.id);
+    } else {
+      onRemove(info._id);
+    }
+  };
+
+  return (
+    <div className='modal-delete flex col space-between'>
+      <div className='top'>
+        <p>
+          Are you sure want to delete {key}? "{info.name}"
+        </p>
+      </div>
+      <div className='bottom flex align-center'>
+        <button className='btn-delete' onClick={() => clickToRemove()}>
+          Delete
+        </button>
+        <button className='btn-go-back' onClick={() => onToggleModalDelete()}>
+          Go Back
+        </button>
+      </div>
+    </div>
+  );
 }

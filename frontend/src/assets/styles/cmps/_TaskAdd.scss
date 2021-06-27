@@ -1,20 +1,38 @@
-.input-task {
-    display: flex;
-    justify-self: start;
-    border: none;
-    padding: rem(2px) rem(22px);
+.task-add {
+    // opacity: 0.5;
     width: 100%;
-    height: rem(34px);
-    line-height: rem(40px);
-    border: 1px solid transparent;
-    transition: 0.4s;
-    box-shadow: 0 3px 4px -5px #484444;
-    &:hover {
-        border: 1px solid rgb(73, 73, 73);
-        border-radius: 2px;
+    .task-color {
+        width: 8px;
+        &:hover {
+            opacity: 1;
+        }
     }
-    &:focus {
-        border: 1px solid #0085ff;
-        outline: none;
+    .form {
+        width: 100%;
+        .input-task {
+            display: flex;
+            justify-self: start;
+            border: none;
+            padding: rem(2px) rem(22px);
+            height: rem(34px);
+            width: 100%;
+            line-height: rem(40px);
+            border: 1px solid transparent;
+            transition: 0.4s;
+            box-shadow: 0 3px 4px -5px #484444;
+
+            &:hover {
+                border: 1px solid rgb(73, 73, 73);
+                border-radius: 2px;
+                opacity: 1;
+            }
+            &:focus {
+                border: 1px solid #0085ff;
+                outline: none;
+            }
+        }
+    }
+    &:hover {
+        opacity: 1;
     }
 }

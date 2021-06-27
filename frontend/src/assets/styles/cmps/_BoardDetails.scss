@@ -11,9 +11,9 @@
     .board-header-top-container {
         position: relative;
         width: 100%;
-        flex-grow: 1;
+        // flex-grow: 1;
         background-color: white;
-        padding: 20px 10px;
+        padding: 20px 10px 3px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
         .board-name {
             max-width: 50%;
@@ -65,91 +65,118 @@
             max-width: 60%;
             margin-bottom: 10px;
         }
-        .board-header-bottom-container {
-            padding-inline-end: 52px;
-            align-items: center;
-            .board-creator {
-                text-align: left;
-                span {
-                    transition: 0.2s;
-                    cursor: pointer;
-                    &:hover {
-                        text-decoration: underline;
-                        color: #0085ff;
-                    }
-                }
+    }
+    .board-header-bottom-container {
+        padding-inline-end: 52px;
+        align-items: center;
+        .btn-add-view {
+            margin-inline-start: 7px;
+            background-color: unset;
+            padding: 8px 16px;
+            height: 40px;
+            // border: none;
+            font-size: 15px;
+            border-radius: 2px;
+            // border-left: 1px solid gray;
+            cursor: pointer;
+            &:hover {
+                background-color: #e6e9ef;
             }
-            .bottom-right-container {
-                & > *:not(:last-child) {
-                    margin-right: 10px;
-                }
-                .btn-add-group {
-                    margin-inline-end: 22px;
-                    background-color: #0085ff;
-                    border: none;
-                    border-radius: 4px;
-                    line-height: 24px;
-                    padding: 4px 8px;
-                    color: #ffff;
-                    &:hover {
-                        background-color: #0071d9;
-                        cursor: pointer;
-                    }
-                }
-                .filter {
-                    .btn-search {
-                        width: 95px;
-                        padding: 3px 10px;
-                        border-radius: 4px;
-                        transition: width 0.4s;
-                        .input-search {
-                            width: 100%;
-                            border: none;
-                            outline: none;
-                            &::placeholder {
-                                color: rgb(50, 51, 56);
-                            }
-                        }
-                        &:hover {
-                            .input-search {
-                                background-color: rgb(230, 233, 239);
-                            }
-                            background-color: rgb(230, 233, 239);
-                        }
-                        &.searching {
-                            position: relative;
-                            width: 170px;
-                            background-color: white;
-                            border: 1px solid rgb(0, 133, 255);
-                            &:hover {
-                                .input-search {
-                                    background-color: white;
-                                }
-                            }
-                            .input-search:hover {
-                                background-color: white;
-                            }
-                        }
-                    }
-                    .btn-filter {
-                        width: rem(95px);
-                        padding: 3px 10px;
-                        background-color: #ffffff;
-                        border: none;
-                        border-radius: 4px;
-                        color: rgb(51, 50, 56);
-                        outline: none;
-                        cursor: pointer;
-                        &:hover {
-                            background-color: #e6e9ef;
-                            cursor: pointer;
-                        }
-                        svg {
-                            color: rgb(92, 92, 92);
-                        }
-                    }
+        }
+        .board-creator {
+            text-align: left;
+            span {
+                transition: 0.2s;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                    color: #0085ff;
                 }
             }
         }
+    }
+    .bottom-right-container {
+        padding-bottom: 6px;
+        margin-inline-start: 20px;
+        margin-block-start: 20px;
+        & > *:not(:last-child) {
+            margin-inline-start: 20px;
+        }
+        .btn-add-group {
+            margin-inline-end: 22px;
+            background-color: #0085ff;
+            border: none;
+            border-radius: 4px;
+            line-height: 24px;
+            padding: 4px 8px;
+            color: #ffff;
+            &:hover {
+                background-color: #0071d9;
+                cursor: pointer;
+            }
+        }
+        .filter {
+            .btn-search {
+                width: 95px;
+                padding: 3px 10px;
+                border-radius: 4px;
+                transition: width 0.4s;
+                .input-search {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    &::placeholder {
+                        color: rgb(50, 51, 56);
+                    }
+                }
+                &:hover {
+                    .input-search {
+                        background-color: rgb(230, 233, 239);
+                    }
+                    background-color: rgb(230, 233, 239);
+                }
+                &.searching {
+                    position: relative;
+                    width: 170px;
+                    background-color: white;
+                    border: 1px solid rgb(0, 133, 255);
+                    &:hover {
+                        .input-search {
+                            background-color: white;
+                        }
+                    }
+                    .input-search:hover {
+                        background-color: white;
+                    }
+                }
+            }
+            .btn-filter {
+                width: rem(95px);
+                padding: 3px 10px;
+                background-color: #ffffff;
+                border: none;
+                border-radius: 4px;
+                color: rgb(51, 50, 56);
+                outline: none;
+                cursor: pointer;
+                margin-inline-start: 20px;
+
+                &:hover {
+                    background-color: #e6e9ef;
+                    cursor: pointer;
+                }
+                svg {
+                    color: rgb(92, 92, 92);
+                }
+            }
+        }
+    }
+    .chart {
+        max-width: 60%;
+
+        margin: 0 auto;
+    }
+    .active-view {
+        border-bottom: 2px solid #0085ff;
     }
 }

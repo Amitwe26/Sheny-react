@@ -1,28 +1,14 @@
 import logo from '../assets/styles/logo/logo.png'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { loadBoards } from '../store/actions/boardAction'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { login } from '../store/actions/userAction'
 
 export function Home() {
-    // const { boards } = useSelector(state => state.boardReducer)
-    // const [boards, setBoards] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch()
-    const history = useHistory()
 
     useEffect(() => {
-        // setLoader()
     }, [])
-
-    // const setLoader = async () => {
-    //     setIsLoading(true)
-    //     setTimeout(async () => {
-    //         setIsLoading(false)
-    //         dispatch(loadBoards())
-    //     }, 2000);
-    // }
 
     const runDemo = () => {
         let loggedinUser = {
@@ -43,7 +29,7 @@ export function Home() {
         <section className="home flex col" >
             <div className="home-header flex start align-center">
                 <Link to="/login" title="Login">Login</Link>
-                <Link to="/" title="Sign-Up">Sign-Up</Link>
+                {/* <Link to="/login" title="Sign-Up">Sign-Up</Link> */}
             </div>
             <div className="home-main flex">
                 <div className="first-panel flex col center align-start">

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import React from 'react'
 
-export function TaskAdd({ onAddTask, groupId }) {
+export function TaskAdd({ onAddTask, groupId, color }) {
     const [task, setTask] = useState({ txt: '' })
 
     const handleChange = (ev) => {
@@ -18,8 +18,10 @@ export function TaskAdd({ onAddTask, groupId }) {
         setTask(newTask)
     }
     return (
-        <div>
-            <form onSubmit={(ev) => addTask(ev)}>
+        <div className="task-add flex">
+            <div className="task-color" style={{ background: ` ${color} `, opacity: .6 }}>
+            </div>
+            <form className="form" onSubmit={(ev) => addTask(ev)}>
                 <input
                     autoComplete="off"
                     className="input-task"

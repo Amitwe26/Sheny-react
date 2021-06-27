@@ -170,44 +170,47 @@
                     }
                 }
                 .board-header-bottom-container {
+                    padding-inline-end: 0;
                     .board-creator {
                         font-size: 14px;
+                        color: red;
                     }
-                    padding-inline-end: 0;
-                    .filter {
-                        div.btn-search {
-                            transition: 0.7s;
-                            &.searching {
-                                width: 160px;
-                                transform: translate(98px, 52px);
-                                z-index: 12;
-                                &:focus {
-                                    background-color: royalblue;
-                                }
-                            }
-                        }
-                        button.btn-filter {
-                            width: 55px;
-                        }
-                        .filter-modal {
-                            left: 0;
-                            width: 100vw;
-                            padding: em(5px);
-                            overflow-x: scroll;
-                            & .column {
-                                h1 {
-                                    width: rem(100px);
-                                    margin-block-start: 0.47em;
-                                    margin-block-end: 0.47em;
-                                }
-                                li {
-                                    width: rem(100px);
-                                }
+                }
+            }
+            .bottom-right-container {
+                .btn-add-group {
+                    display: none;
+                }
+                .filter {
+                    div.btn-search {
+                        transition: 0.7s;
+                        &.searching {
+                            width: 160px;
+                            transform: translate(98px, 52px);
+                            z-index: 12;
+                            &:focus {
+                                background-color: royalblue;
                             }
                         }
                     }
-                    .btn-add-group {
-                        display: none;
+                    button.btn-filter {
+                        width: 55px;
+                    }
+                    .filter-modal {
+                        left: 0;
+                        width: 100vw;
+                        padding: em(5px);
+                        overflow-x: scroll;
+                        & .column {
+                            h1 {
+                                width: rem(100px);
+                                margin-block-start: 0.47em;
+                                margin-block-end: 0.47em;
+                            }
+                            li {
+                                width: rem(100px);
+                            }
+                        }
                     }
                 }
             }

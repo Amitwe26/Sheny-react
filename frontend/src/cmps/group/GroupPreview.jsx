@@ -80,6 +80,7 @@ export class GroupPreview extends Component {
                 <TaskAdd
                     onAddTask={onAddTask}
                     groupId={group.id}
+                    color={group.color}
                 />
                 <GroupProgressBar activeBoard={activeBoard} tasks={group.tasks} />
                 { showModal && <div className="screen" onClick={this.closeModal}></div>}

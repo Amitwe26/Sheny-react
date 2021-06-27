@@ -6,12 +6,19 @@
     border-radius: 1px;
     border-right: 8px solid #e6e9ef;
     transition: background-color 0.3s;
-    padding: 0 rem(10px);
+    // padding: 0 rem(10px);
     color: #3f4045;
     font-size: rem(13px);
     font-family: "Roboto", helvetica, arial, sans-serif;
     &:hover {
         background-color: #e6e9ef;
+    }
+    .color-group {
+        width: 8px;
+        transition: 0.5s;
+        &:hover {
+            width: 32px;
+        }
     }
     .task-left {
         .task-left-content {

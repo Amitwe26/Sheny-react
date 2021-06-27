@@ -24,6 +24,7 @@
             padding: 5px;
             background-color: #3f51b5;
         }
+
         button {
             margin: 10px;
             cursor: pointer;
@@ -38,10 +39,25 @@
         .login {
             margin: 0 auto;
             width: 50%;
-            .face-icon {
-                font-size: 2rem !important;
-                padding-right: 3px;
+            .login-facebook-btn {
+                display: flex;
+                align-items: center;
+                // border: 1px solid;
+                // border-radius: 4px;
+                background-color: #ffffff;
+                .face-icon {
+                    font-size: 2rem !important;
+                    margin-inline-start: 17px;
+                    margin-inline-end: -17px;
+                }
             }
+        }
+        .kep-login-facebook.metro {
+            color: #2c49e9;
+            padding: 1px;
+            border: none;
+            background-color: unset;
+            font-size: 13px;
         }
         .signup {
             margin: 0 auto;
