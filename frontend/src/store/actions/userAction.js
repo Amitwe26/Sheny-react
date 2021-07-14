@@ -73,7 +73,9 @@ export function signup(userCreds) {
   return async (dispatch) => {
     try {
       const user = await userService.signup(userCreds);
-      dispatch({ type: 'SET_USER', user });
+      if (user) {
+        dispatch({ type: 'SET_USER', user });
+      }
       return user;
     } catch (err) {
       console.log('UserActions: err in signup', err);

@@ -12,7 +12,6 @@ import {
 import { BoardDetails } from '../cmps/board/BoardDetails';
 import { BoardSideNav } from '../cmps/board/BoardSideNav';
 import { AppHeader } from '../cmps/AppHeader';
-import logo3 from '../assets/logo/logo3.gif';
 
 import React from 'react';
 import { Logo } from '../cmps/Logo';
@@ -35,6 +34,7 @@ export function BoardApp(props) {
     setTimeout(async () => {
       await getBoards();
     }, 4000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ export function BoardApp(props) {
     setTimeout(() => {
       setIsLoadinge(false);
     }, 4000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history]);
 
   useEffect(() => {
@@ -57,11 +58,12 @@ export function BoardApp(props) {
       const num = boards.length;
       history.push(`/board/${boards[num - 1]._id}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [msg]);
 
   const getBoards = async () => {
     // const dispatch(checkUserLogin())
-    const boards = await onLoadBoards();
+    await onLoadBoards();
     if (boards && !activeBoard) {
       await onSetActiveBoard();
     }
@@ -69,10 +71,13 @@ export function BoardApp(props) {
   };
 
   const onLoadBoards = async () => {
-    if (!activeBoard)
+    if (activeBoard) {
+      history.push(`/board/${activeBoard._id}`);
+    } else {
       dispatch(loadBoards()).then((res) =>
         history.push(`/board/${res[0]._id}`)
       );
+    }
   };
 
   const onSetActiveBoard = async () => {

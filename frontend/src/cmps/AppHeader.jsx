@@ -22,6 +22,7 @@ import React from 'react';
 
 export function AppHeader() {
   const { loggedInUser } = useSelector((state) => state.userReducer);
+  const { activeBoard } = useSelector((state) => state.boardReducer);
   const [isNotificationModalShown, setIsNotificationModalShown] =
     useState(false);
   const [notifications, setNotifications] = useState([]);
@@ -38,7 +39,7 @@ export function AppHeader() {
       newLoggedInUser.notifications = copyNotifications;
       dispatch(updateUser(newLoggedInUser));
     });
-    setNotifications(loggedInUser.notifications);
+    // setNotifications(loggedInUser.notifications);
     // console.log('loggedInUser is:', loggedInUser);
     // const logdin = storageService.load('loggedInUser')
     // console.log('sessionStorage.loggedInUser is:', logdin);
@@ -48,7 +49,7 @@ export function AppHeader() {
   }, []);
 
   useEffect(() => {
-    setNotifications(loggedInUser.notifications);
+    setNotifications(loggedInUser?.notifications);
   }, [loggedInUser]);
   const toggleShowModal = () => {
     setIsNotificationModalShown(!isNotificationModalShown);
@@ -69,7 +70,7 @@ export function AppHeader() {
           </Link>
         </div>
         <div className='header-left-top flex col'>
-          <Link className='header-item' to='/board' title='My Boards'>
+          <Link className='header-item' to='board' title='My Boards'>
             <AppsOutlined />
           </Link>
           <span

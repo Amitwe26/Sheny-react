@@ -4,14 +4,12 @@ import { Person, Mail, Phone, Cake, Work } from '@material-ui/icons';
 import { Avatar } from '@material-ui/core';
 import { AppHeader } from '../cmps/AppHeader';
 import { userService } from '../services/userService';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeUser, updateUser } from '../store/actions/userAction';
-import { ListMyWeek } from '../cmps/ListMyWeek';
+// import { ListMyWeek } from '../cmps/ListMyWeek';
 import { ModalProfile } from '../cmps/profile/ModalProfile';
 
 export function Profile() {
-  const { boards } = useSelector((state) => state.boardReducer);
-  const { loggedInUser } = useSelector((state) => state.userReducer);
   const [user, setUser] = useState({});
   const [initials, setInitials] = useState('');
   const [isModalShown, setIsModalShown] = useState(false);
@@ -20,7 +18,7 @@ export function Profile() {
 
   useEffect(() => {
     loadUser();
-    getInitials('tak took');
+    // getInitials();
   }, []);
 
   const loadUser = async () => {
@@ -61,20 +59,6 @@ export function Profile() {
           <h1>{user.fullname}</h1>
         </div>
         <div className='profile-main flex '>
-          {/* <div className='first-panel '>
-            <h2>My Boards</h2>
-            <ListMyWeek boards={boards} userId={loggedInUser._id} />
-        </div> */}
-
-          {/* <div className='second-panel '>
-            <h2>My Tasks</h2>
-            <ul className='tasks-list clean-list'>
-              <li>from board ⇒ task name </li>
-              <li>from board ⇒ task name </li>
-              <li>from board ⇒ task name </li>
-            </ul>
-          </div> */}
-
           <div className='third-panel'>
             <Avatar
               className='avatar'

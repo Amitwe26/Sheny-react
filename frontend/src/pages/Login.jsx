@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Input from '@material-ui/core/Input';
 import { login, signup, logout } from '../store/actions/userAction';
 import { userService } from '../services/userService';
-import { Button } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Link, useHistory } from 'react-router-dom';
@@ -73,6 +72,7 @@ export function Login() {
     const signupCreds = { username, password, fullname, email, url };
     try {
       dispatch(signup(signupCreds)).then((user) => {
+        console.log('user amit is:', user);
         if (user) {
           setSignupCred({
             username: '',
@@ -119,7 +119,7 @@ export function Login() {
         type='text'
         name='username'
         autoComplete='off'
-        autoFocus='on'
+        autoFocus={true}
         value={loginCred.username}
         onChange={(ev) => loginHandleChange(ev)}
         placeholder='Username'

@@ -77,6 +77,7 @@
     }
     .header-right-panel {
         height: 100%;
+        display: none;
         width: rem(50px);
         border-inline-start: 1px solid rgba(255, 255, 255, 0.2);
         align-items: center;

@@ -176,7 +176,11 @@
 
         margin: 0 auto;
     }
-    .active-view {
-        border-bottom: 2px solid #0085ff;
+    .container-views {
+        padding: 5px;
+        .active-view {
+            background-color: #e6e9ef;
+            border-bottom: 2px solid #0085ff;
+        }
     }
 }

@@ -25,6 +25,7 @@ import { useHistory } from 'react-router';
 import { ActivitiesModal } from './ActivitiesModal';
 import { BoardSideNavModal } from './BoardSideNavModal';
 import { ChartPreview } from '../chart/ChartPreview';
+import { CalendarPriview } from '../calendar/CalendarPriview';
 // import { ModalMsg } from '../ModalMsg';
 
 export function BoardDetails(props) {
@@ -376,7 +377,7 @@ export function BoardDetails(props) {
           {activeBoard.desc}
         </span>
         <div className='board-header-bottom-container flex space-between'>
-          <div>
+          <div className='container-views'>
             <span
               className={`btn-add-view ${
                 !chartShown && !calendarShown ? 'active-view' : ''
@@ -450,6 +451,7 @@ export function BoardDetails(props) {
       )}
       {chartShown && (
         <ChartPreview
+          activeBoard={activeBoard}
           groups={
             !groupsForDisplay || !groupsForDisplay.length
               ? activeBoard.groups
@@ -457,7 +459,16 @@ export function BoardDetails(props) {
           }
         />
       )}
-      {calendarShown && <div>Calendar</div>}
+      {calendarShown && (
+        <CalendarPriview
+          activeBoard={activeBoard}
+          groups={
+            !groupsForDisplay || !groupsForDisplay.length
+              ? activeBoard.groups
+              : groupsForDisplay
+          }
+        />
+      )}
     </section>
   );
 }

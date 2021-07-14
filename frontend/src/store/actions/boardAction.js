@@ -72,12 +72,12 @@ export function updateBoards(board, boards) {
 export function removeBoard(boardId) {
   return async (dispatch) => {
     try {
-      dispatch({ type: 'REMOVE_BOARD', boardId });
       await boardService.remove(boardId);
+      dispatch({ type: 'REMOVE_BOARD', boardId });
       socketService.emit('boards update', 'removed board');
       dispatch(setMsg('Remove Board successfully'));
     } catch (err) {
-      console.log('Board Actions: err in removeBoard', err);
+      dispatch(setMsg('Only Admin Delete'));
     } finally {
     }
   };

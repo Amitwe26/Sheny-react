@@ -49,6 +49,7 @@ export function BoardSideNavModal({
           info={board}
           keyName={'board'}
           onRemove={onRemove}
+          onCloseModalDelete={onCloseModalDelete}
           onToggleModalDelete={onToggleModalOptions}
         />
       )}

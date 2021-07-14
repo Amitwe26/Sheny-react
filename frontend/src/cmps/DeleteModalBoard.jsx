@@ -5,14 +5,13 @@ export function DeleteModalBoard({
   keyName,
   onRemove,
   onToggleModalDelete,
+  onCloseModalDelete,
   group,
 }) {
   const [key, setKey] = useState('');
   // const [state, setstate] = useState(initialState)
   useEffect(() => {
     if (keyName) setKey(keyName);
-    if (group) {
-    }
   }, [keyName]);
 
   const clickToRemove = () => {
@@ -23,6 +22,8 @@ export function DeleteModalBoard({
     } else {
       onRemove(info._id);
     }
+    // onCloseModalDelete();
+    onToggleModalDelete();
   };
 
   return (
